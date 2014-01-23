@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<link rel='stylesheet' href='css/generalmedia.css'>
+		<meta name="description" content="">
+		<meta name="author" content="Burt">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<div id="header">
+				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+			</div>
+			<!-- End header -->
+
+			<!-- Navbar division -->
+
+			<div id="headnav">
+				<table style="width: 100%" cellspacing="2" cellpadding="2">
+
+					<tr style="background-color: #E31B23;">
+
+						<td style="width: 25%"><a href="labs.html">LABS</a></td>
+
+						<td style="width: 25%"><a href="documentation.html">DOCUMENTATION</a></td>
+
+						<td style="width: 25%"><a href="tutorials.html">TUTORIALS</a></td>
+
+						<td style="width: 25%"><a href="about.html">ABOUT</a></td>
+
+					</tr>
+
+				</table>
+
+			</div><!-- End nav -->
+
+			<div id="chapnav">
+				<table style="width: 100%" cellspacing="2" cellpadding="2">
+
+					<tr style="background-color: #E31B23;">
+
+						<td style="width: 15%"><a href="chapters.html">CHAPTERS</a></td>
+
+						<td style="width: 5%"><a href="ch01.html">01</a></td>
+
+						<td style="width: 5%"><a href="ch02.html">02</a></td>
+
+						<td style="width: 5%"><a href="ch03.html">03</a></td>
+
+						<td style="width: 5%"><a href="ch04.html">04</a></td>
+
+						<td style="width: 5%"><a href="ch05.html">05</a></td>
+
+						<td style="width: 5%"><a href="ch06.html">06</a></td>
+
+						<td style="width: 5%"><a href="ch07.html">07</a></td>
+
+						<td style="width: 5%"><a href="ch08.html">08</a></td>
+
+						<td style="width: 5%"><a href="ch09.html">09</a></td>
+
+						<td style="width: 5%"><a href="ch10.html">10</a></td>
+
+						<td style="width: 5%"><a href="ch11.html">11</a></td>
+
+						<td style="width: 5%"><a href="ch12.html">12</a></td>
+
+						<td style="width: 5%"><a href="ch13.html">13</a></td>
+
+						<td style="width: 5%"><a href="ch14.html">14</a></td>
+
+						<td style="width: 5%"><a href="ch15.html">15</a></td>
+
+					</tr>
+
+				</table>
+
+			</div>
+			<!-- End nav -->
+
+			<!-- Main content -->
+			<p class="Section">
+				12.2.4: Other Gates
+			</p>
+
+			<p>
+				Any device, whose operation can be defined in terms of a truth table or Boolean expression, can be implemented using only the fundamental logic gates: <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span>. However, a number of additional gates are usually defined, as they prove useful for practical purposes. For example, it is frequently the case that a <span class="Ital">not</span> will immediately follow an <span class="Ital">and</span> gate, like so:
+			</p>
+
+			<h1>INSERT FIGURE</h1>
+			<p>
+				<span>Since this is such a common occurrence, the circuit has been given a name (</span> <span class="Ital">nand</span> <span>) and a gate symbol (the</span> <span class="Ital">and</span> <span>symbol combined with the bubble from the</span> <span class="Ital">not</span> <span>symbol). Similarly,</span> <span class="Ital">not</span> <span>often follows</span> <span class="Ital">or</span> <span>, so there is a</span> <span class="Ital">nor</span> <span>gate whose symbol is the bubble from the</span> <span class="Ital">not</span> <span>attached to the</span> <span class="Ital">or</span> <span>symbol.</span>
+			</p>
+
+			<p>
+				<span>Figure 12.9 illustrates both the</span> <span class="Ital">nand</span> <span>and</span> <span class="Ital">nor</span> <span>gates. Their behavior, in terms of Boolean expressions, is provided in the figure as well. It is important to remember that these gates are simply a convenience, a kind of “shorthand”, in that they allow a circuit to be constructed from fewer underlying components.</span>
+			</p>
+
+			<p>
+				<span>As another example, the basic</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>gates support only two inputs, but a circuit designer will frequently need to</span> <span class="Ital">and</span> <span>or</span> <span class="Ital">or</span> <span>more than two inputs. For this reason multi-input</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>gates exist. Figure 12.10 presents the three and four input</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>gates along with their Boolean expressions. </span>
+			</p>
+
+			<h1>INSERT FIGURE 12.9</h1>
+			<p class="Figure">
+				Figure 12.9: <span class="Ital">Nand</span> and <span class="Ital">nor</span> gates
+			</p>
+
+			<h1>INSERT FIGURE 12.10</h1>
+			<p class="Figure">
+				<span>Figure 12.10: Three and four input</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>gates</span>
+			</p>
+
+			<p>
+				While these gates are often quite convenient, remember that it is always possible to construct equivalent circuits from the underlying two-input gates. For example, the circuit:
+			</p>
+
+			<p>
+				<span>represents one possible implementation of a four-input</span> <span class="Ital">or</span> <span>.</span> <span class="Footnote"><a href="#ftn1" id="body_ftn1">[1]</a></span> <span>&nbsp;The other multi-input gates can be constructed in a similar manner.</span>
+			</p>
+
+			<p>
+				In addition to multi-input <span class="Ital">and</span> and <span class="Ital">or</span> gates, multi-input <span class="Ital">nand</span> and <span class="Ital">nor</span> gates can be constructed. The symbols for these gates are identical to the symbols for the multi-input <span class="Ital">and</span> and <span class="Ital">or</span> gates with the exception of a <span class="Ital">not</span> bubble attached to the output pin of each gate symbol. Their Boolean expressions are also identical to those of Figure 12.10, except that a <span class="Ital">not</span> bar appears above the right-hand side of the expression.
+			</p>
+
+			<p class="Section">
+				&nbsp;
+			</p>
+
+			<p class="Section">
+				Exercises for Section 12.2.4
+			</p>
+
+			<ol>
+				<li>
+					<p>
+						Implement a 3-input <span class="Ital">and</span> <span>using 2-input</span> <span class="Ital">and</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 3-input <span class="Ital">and</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 4-input <span class="Ital">and</span> <span>using 2-input</span> <span class="Ital">and</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 4-input <span class="Ital">and</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 3-input <span class="Ital">or</span> <span>using 2-input</span> <span class="Ital">or</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 3-input <span class="Ital">or</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 4-input <span class="Ital">or</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 3-input <span class="Ital">nand</span> <span>using 2-input</span> <span class="Ital">and</span> <span>gates and single-input</span> <span class="Ital">not</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 3-input <span class="Ital">nand</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 4-input <span class="Ital">nand</span> <span>using 2-input</span> <span class="Ital">and</span> <span>gates and single-input</span> <span class="Ital">not</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 4-input <span class="Ital">nand</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 3-input <span class="Ital">nor</span> <span>using 2-input</span> <span class="Ital">or</span> <span>gates and single-input</span> <span class="Ital">not</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 3-input <span class="Ital">nor</span> <span>gate.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Implement a 4-input <span class="Ital">nor</span> <span>using 2-input</span> <span class="Ital">or</span> <span>gates and single-input</span> <span class="Ital">not</span> <span>gates.</span>&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop a complete truth table for the 4-input <span class="Ital">nor</span> gate.&nbsp;
+					</p>
+				</li>
+			</ol>
+			
+			<p class="Section">Footnotes</p>
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote" href="#body_ftn1" id="ftn1">[1]</a></span> <span>&nbsp;</span>The fully-parenthesized Boolean expression for this implementation of the four-input <span class="Ital">or</span> is
+			</p>
+			
+			<p class="Footnote">
+				Z = ((A+B)+(C+D)). There are other possible implementations of this gate. For example, the circuit defined by the Boolean expression Z = (((A+B)+C)+D).
+			</p>
+
+			<!-- End main content -->
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			<nav>
+				<p>
+					--
+				</p>
+				<p>
+					<a href="index.html">Home</a>
+				</p>
+				<p>
+					<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> Contact</a>
+				</p>
+			</nav>
+
+			<div>
+
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Burt
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

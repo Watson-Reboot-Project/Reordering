@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<link rel='stylesheet' href='css/generalmedia.css'>
+		<meta name="description" content="">
+		<meta name="author" content="Burt">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<div id="header">
+				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+			</div>
+			<!-- End header -->
+
+			<!-- Navbar division -->
+
+			<div id="headnav">
+				<table style="width: 100%" cellspacing="2" cellpadding="2">
+
+					<tr style="background-color: #E31B23;">
+
+						<td style="width: 25%"><a href="labs.html">LABS</a></td>
+
+						<td style="width: 25%"><a href="documentation.html">DOCUMENTATION</a></td>
+
+						<td style="width: 25%"><a href="tutorials.html">TUTORIALS</a></td>
+
+						<td style="width: 25%"><a href="about.html">ABOUT</a></td>
+
+					</tr>
+
+				</table>
+
+			</div><!-- End nav -->
+
+			<div id="chapnav">
+				<table style="width: 100%" cellspacing="2" cellpadding="2">
+
+					<tr style="background-color: #E31B23;">
+
+						<td style="width: 15%"><a href="chapters.html">CHAPTERS</a></td>
+
+						<td style="width: 5%"><a href="ch01.html">01</a></td>
+
+						<td style="width: 5%"><a href="ch02.html">02</a></td>
+
+						<td style="width: 5%"><a href="ch03.html">03</a></td>
+
+						<td style="width: 5%"><a href="ch04.html">04</a></td>
+
+						<td style="width: 5%"><a href="ch05.html">05</a></td>
+
+						<td style="width: 5%"><a href="ch06.html">06</a></td>
+
+						<td style="width: 5%"><a href="ch07.html">07</a></td>
+
+						<td style="width: 5%"><a href="ch08.html">08</a></td>
+
+						<td style="width: 5%"><a href="ch09.html">09</a></td>
+
+						<td style="width: 5%"><a href="ch10.html">10</a></td>
+
+						<td style="width: 5%"><a href="ch11.html">11</a></td>
+
+						<td style="width: 5%"><a href="ch12.html">12</a></td>
+
+						<td style="width: 5%"><a href="ch13.html">13</a></td>
+
+						<td style="width: 5%"><a href="ch14.html">14</a></td>
+
+						<td style="width: 5%"><a href="ch15.html">15</a></td>
+
+					</tr>
+
+				</table>
+
+			</div>
+			<!-- End nav -->
+
+			<!-- Main content -->
+			<p class="Section">
+				8.5 &nbsp; Expressions and assignment
+			</p>
+
+			<p>
+				As we have just seen, the “prompt” statements can be used to store user input into a variable. The “prompt” statements are really just specialized versions of the more general “assignment” statement.  &nbsp; Assignments take the form:
+			</p>
+
+			<p class="P60">
+				<span class="Italicized">variable </span><span class="Subfigure">=</span> <span class="Italicized">expression</span><span class="Subfigure">;</span>
+			</p>
+
+			<p>
+				The symbol “=” is called the assignment operator. It is related to, but unique from the mathematical “equals” operator. Assignment statements work by first evaluating the expression on the right hand side of the assignment operator to determine its value. Once that value has been computed, the value is then stored in the variable named on the left hand side of the assignment operator.
+			</p>
+
+			<p>
+				Watson JavaScript supports two major types of expressions: text string-valued expressions and numeric-valued expressions. Since the variable named on the left hand side of the assignment statement specifies where the value of the right hand side expression is to be stored, it is important that their types match. In other words, if a numeric variable is named on the left hand side of the assignment operator, then a numeric-valued expression must occur on the right hand side of the operator. Similarly, if a text string-valued expression occurs on the right hand side of the assignment operator, then a text variable must be named on the left hand side. The following are valid assignment statements, assuming <span class="Subfigure">firstName</span> is a text variable, and <span class="Subfigure">total</span> and <span class="Subfigure">age</span> are numeric variables.
+			</p>
+
+			<p class="Subfigure">
+				firstName = “Chris”;&nbsp; &nbsp; total = 0;&nbsp; &nbsp; age = 41;
+			</p>
+
+			<p>
+				The numeric expressions supported by Watson JavaScript are very similar to the spreadsheet formulas presented in Section 2.4.2 of Chapter 2. Watson JavaScript numeric expressions support the same math operators as do spreadsheet formulas; namely, addition “+”, subtraction “-”, multiplication “*”, and division “/”. The precedence of these operators remains the same, with multiplication and division being performed ahead of addition and subtraction. Parentheses for grouping sub-expressions are used identically in both systems.
+			</p>
+
+			<p>
+				The major difference between spreadsheet formulas and Watson JavaScript expressions are that Watson JavaScript expression use variable names in place of cell references.
+			</p>
+
+			<p>
+				Thus, assuming <span class="Subfigure">X</span> and <span class="Subfigure">Y</span> are numeric variables,
+			</p>
+
+			<p class="Subfigure">
+				Y + Z
+			</p>
+
+			<table border="0" cellpadding="0" cellspacing="0" class="Table2">
+				<colgroup>
+					<col width="167"/>
+					<col width="284"/>
+					<col width="279"/>
+				</colgroup>
+
+				<tr class="Table21">
+					<td class="Table2_A1" style="text-align:left;width:1.5in;">
+					<p class="P65">
+						<span class="T48">&nbsp;  &nbsp; </span> Priority
+					</p></td>
+
+					<td class="Table2_B1" style="text-align:left;width:2.5625in;">
+					<p class="P65">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> Operation
+					</p></td>
+
+					<td class="Table2_C1" style="text-align:left;width:2.5104in;">
+					<p class="P65">
+						Direction of Evaluation
+					</p></td>
+				</tr>
+
+				<tr class="Table21">
+					<td class="Table2_A2" style="text-align:left;width:1.5in;">
+					<p class="P61">
+						1 (highest priority)
+					</p></td>
+
+					<td class="Table2_B2" style="text-align:left;width:2.5625in;">
+					<p class="P61">
+						Variables &nbsp; &amp; function references
+					</p></td>
+
+					<td class="Table2_C2" style="text-align:left;width:2.5104in;">
+					<p class="P61">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp; </span>left to right
+					</p></td>
+				</tr>
+
+				<tr class="Table21">
+					<td class="Table2_A3" style="text-align:left;width:1.5in;">
+					<p class="P61">
+						2
+					</p></td>
+
+					<td class="Table2_B3" style="text-align:left;width:2.5625in;">
+					<p class="P61">
+						Nested parentheses &nbsp;  &nbsp;  &nbsp;
+					</p></td>
+
+					<td class="Table2_C3" style="text-align:left;width:2.5104in;">
+					<p class="P61">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp; </span>inner most to outer most
+					</p></td>
+				</tr>
+
+				<tr class="Table21">
+					<td class="Table2_A4" style="text-align:left;width:1.5in;">
+					<p class="P61">
+						3
+					</p></td>
+
+					<td class="Table2_B4" style="text-align:left;width:2.5625in;">
+					<p class="P61">
+						Non-nested parentheses
+					</p></td>
+
+					<td class="Table2_C4" style="text-align:left;width:2.5104in;">
+					<p class="P61">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp; </span>left to right
+					</p></td>
+				</tr>
+
+				<tr class="Table21">
+					<td class="Table2_A5" style="text-align:left;width:1.5in;">
+					<p class="P61">
+						4
+					</p></td>
+
+					<td class="Table2_B5" style="text-align:left;width:2.5625in;">
+					<p class="P61">
+						Multiplication &amp; division
+					</p></td>
+
+					<td class="Table2_C5" style="text-align:left;width:2.5104in;">
+					<p class="P61">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp; </span>left to right
+					</p></td>
+				</tr>
+
+				<tr class="Table21">
+					<td class="Table2_A6" style="text-align:left;width:1.5in;">
+					<p class="P61">
+						5 (lowest priority)
+					</p></td>
+
+					<td class="Table2_B6" style="text-align:left;width:2.5625in;">
+					<p class="P61">
+						Addition &amp; subtraction &nbsp;
+					</p></td>
+
+					<td class="Table2_C6" style="text-align:left;width:2.5104in;">
+					<p class="P61">
+						<span class="T48">&nbsp;  &nbsp;  &nbsp; </span>left to right
+					</p></td>
+				</tr>
+			</table>
+
+			<p class="Figure">
+				Figure 8.8: &nbsp; Operator precedence in Watson JavaScript mathematical expressions
+			</p>
+
+			<p>
+				will be evaluated as the sum of the value stored in <span class="Subfigure">Y</span> together with the value stored in <span class="Subfigure">Z</span>. Assuming that <span class="Subfigure">Y</span> holds the value 15 and <span class="Subfigure">Z</span> holds the value 10, the expression would evaluate to 25. If this expression appeared in an assignment statement such as
+			</p>
+
+			<p class="Subfigure">
+				X = Y + Z;
+			</p>
+
+			<p class="Figure">
+				&nbsp;
+			</p>
+
+			<p>
+				which is read “<span class="Subfigure">X</span> is assigned the value of <span class="Subfigure">Y</span> plus <span class="Subfigure">Z</span>”, <span class="Subfigure">X</span> would take on the value 25. Of course, if <span class="Subfigure">Y</span> and <span class="Subfigure">Z</span> held different values, such as 100 and 250, then the value stored in <span class="Subfigure">X</span> would be different as well, 350 in this case.
+			</p>
+
+			<p>
+				The priorities, or precedence, of the various Watson JavaScript mathematical operators are summarized in Figure 8.8. This figure is almost identical to Figure 2.5, which contains the priorities for spreadsheet formulas.
+			</p>
+
+			<p>
+				When evaluating expressions, the general rule is that all operations at the same “level” are performed one after another working through the expression from left to right. Evaluation continues in this manner until a single result is computed.
+			</p>
+
+			<p>
+				For example, the expression:
+			</p>
+
+			<p class="Subfigure">
+				Z + Y / 3 * 8
+			</p>
+
+			<p>
+				Where <span class="Subfigure">Y</span> is again 15 and <span class="Subfigure">Z</span> is 10, would be evaluated in the following way. First, <span class="Subfigure">Z</span> would be replaced with 10 and then <span class="Subfigure">Y</span> with 15, giving the intermediate expression:
+			</p>
+
+			<p class="Subfigure">
+				10 + 15 / 3 * 8
+			</p>
+
+			<p class="Figure">
+				&nbsp;
+			</p>
+
+			<p>
+				There are now three operations that need to be performed to compute the result: one addition, one division, and one multiplication. Since multiplication and division are at a higher precedence level than addition and subtraction, the division of 15 by 3 is performed, resulting in:
+			</p>
+
+			<p class="Subfigure">
+				10 + 5 * 8
+			</p>
+
+			<p>
+				Next, the multiplication 5 by 8 is performed, giving:
+			</p>
+
+			<p class="Subfigure">
+				10 + 40
+			</p>
+
+			<p>
+				Finally, the addition takes place, producing the result:
+			</p>
+
+			<p class="Figure">
+				50
+			</p>
+
+			<p>
+				Assuming the expression had occurred in the statement
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(Z + Y / 3 * 8);
+			</p>
+
+			<p>
+				the value 50 would have been output to the display.
+			</p>
+
+			<p>
+				In addition to numbers, Watson JavaScript also provides limited support for text strings. As we have seen, text strings may be represented as both constants and variables. They can be written to the display screen (via “write” and “writeln”), read from the keyboard (via “prompt”), and assigned to variables (via assignment statements).
+			</p>
+
+			<p>
+				For example, the following:
+			</p>
+
+			<p class="Subfigure">
+				president = “George Bush”;
+			</p>
+
+			<p>
+				is a perfectly valid assignment statement, as long as <span class="Subfigure">president</span> is a text variable. When executed this statement will place the value of the text string “George Bush” into the text variable <span class="Subfigure">president</span>. Likewise,
+			</p>
+
+			<p class="Subfigure">
+				commanderInChief = president;
+			</p>
+
+			<p>
+				is valid as well, assuming both <span class="Subfigure">commanderInChief</span> and &nbsp; <span class="Subfigure">president</span> are text variables. The statement places a copy of the current value held in <span class="Subfigure">president</span> into the variable <span class="Subfigure">commanderInChief</span>.
+			</p>
+
+			<p>
+				Watson JavaScript includes one built in operation that may be performed on text strings. This operator, called concatenation, allows two separate strings to be merged together. In a sense, concatenation is the text string equivalent of the mathematical operator addition. For this reason, the JavaScript symbol for concatenation is “+”.
+			</p>
+
+			<p>
+				Whenever a “+” symbol is encountered in an expression, JavaScript determines its meaning by looking at the type of the variables and constants appearing in that expression. If these variables and constants are numeric, then JavaScript interprets “+” as addition. If the variables and constants of the expression are text-based, then JavaScript interprets “+” as concatenation.
+			</p>
+
+			<p>
+				For example, the following is a legal assignment statement, assuming president is a <span class="Subfigure">text</span> variable.
+			</p>
+
+			<p class="Subfigure">
+				president = “George ” + “Bush”;
+			</p>
+
+			<p>
+				This statement would first evaluate the text expression &nbsp; <span class="Subfigure">“George ” + “Busch”</span> which generates the text string “George Bush”, and then assign that value to the text variable <span class="Subfigure">president</span>. Note that in order for this statement to have meaning in Watson JavaScript, <span class="Subfigure">president</span> must be a text variable and not a numeric variable. Also note that a space was included at the end of the first text string, “George ”. This was necessary so that when this string was concatenated with “Bush” a blank would appear between the first and last name.
+			</p>
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p class="Section">
+				Exercises for Section 8.5
+			</p>
+
+			<ol>
+				<li>
+					<p>
+						Show what would be printed by the following program.&nbsp;
+					</p>
+				</li>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; var A; // Numeric
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; var B; // Numeric
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; var C; // Numeric
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; A = 5;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; B = 10;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; C = 2;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; document.writeln ( A / B * 100 );
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; document.writeln ( A + B / C );
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;  &nbsp; document.writeln ( B * C - A );
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;
+				</p>
+
+				<p class="Subfigure">
+					&nbsp;
+				</p>
+
+				<li>
+					<p>
+						Write a Watson JavaScript program that computes the product of three numbers entered by the user. In other words, the program should ask for and receive three integer values from a user, multiply these three numbers together, and then print the product. This program will be similar to the program of Figure 8.7 that computes the sum of two numbers.
+					</p>
+				</li>
+
+				<p>
+					&nbsp;
+				</p>
+
+				<p>
+					&nbsp;
+				</p>
+
+				<p>
+					&nbsp;
+				</p>
+
+				<li>
+					<p>
+						Write a Watson JavaScript program to convert a temperature from degrees Fahrenheit to Celsius. The conversion is defined by the formula <span class="Italicized">C = 5/9 (F-32)</span> &nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Write a Watson JavaScript program to compute the area of a rectangle given its height and width, in inches, as input. <span class="Footnote_20_Symbol"><span class="Footnote_20_anchor" title="Footnote: It is interesting to note that before the invention of spreadsheets, programmers spent much of their time writing little special purpose programs, not much more complex than those in problems 3 and 4. These programs, which generally computed tables of values based on various formulas, were used for engineering design, financial analysis, and economic modeling. Today, most of these tasks can be accomplished with general-purpose spreadsheets."><a href="#ftn3" id="body_ftn3">3</a></span></span>&nbsp;
+					</p>
+				</li>
+			</ol>
+			<!-- End main content -->
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			<nav>
+				<p>
+					--
+				</p>
+				<p>
+					<a href="index.html">Home</a>
+				</p>
+				<p>
+					<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> Contact</a>
+				</p>
+			</nav>
+
+			<div>
+
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Burt
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
