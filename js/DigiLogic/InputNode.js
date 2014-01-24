@@ -88,8 +88,8 @@ function InputNode(initX, initY, setText, initValue, setName, id, setup) {
 	transFg = new Kinetic.Rect({
 		x: gScale * 0,
 		y: gScale * 5,
-		width: gScale * 40,
-		height: gScale * 15
+		width: gScale * 50,
+		height: gScale * 50
 	});
 	
 	// create the group object

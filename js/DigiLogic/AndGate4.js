@@ -9,7 +9,7 @@
 *				associated with the line that runs to the component it is connected to
 *				from its plugout. The "plugoutComp" stands for plugout component, which is
 *				the components the AND gate outputs to. Note that this class and the OrGate
-*				class is very similar (the only major difference is the evaluate function).
+*				class is very similar (the only major difference is the evaluate function)
 ***************************************************************************************/
 
 function AndGate4(initX, initY, setName, id, setup) {

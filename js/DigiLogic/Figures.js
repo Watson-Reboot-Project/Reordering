@@ -189,6 +189,8 @@ function Figures(setup, controller, truthTable) {
 			
 			var inputA;
 			var inputB;
+			var inputC;
+			var inputD;
 			
 			if (inputVals === null) {
 				inputA = controller.addInput(5, 0, "A", 0);
@@ -363,20 +365,22 @@ function Figures(setup, controller, truthTable) {
 		}
 		else if (figureNum == 11) { // xor
 			var header = ["A", "B", "Z"];
-			adjustScale(640, 125, width, height);
-			checkTable(670, 125, width, height, 0.8, 2, 1, header, false, false);
-			setup.setRatio(150, 700);
+			truthTable.showTruthTable(true);
+			truthTable.createTable(2, 1, header, false);
+			setup.setInitWidth(615);
+			setup.setInitHeight(200);
+			setup.setMaxWidth(720);
 			
 			var input1;
 			var input2;
 			
 			if (inputVals === null) {
-				input1 = controller.addInput(50, 5, "A", 0);
-				input2 = controller.addInput(50, 43, "B", 0);
+				input1 = controller.addInput(10, 5, "A", 0);
+				input2 = controller.addInput(10, 43, "B", 0);
 			}
 			else {
-				input1 = controller.addInput(50, 5, "A", inputVals[0]);
-				input2 = controller.addInput(50, 43, "B", inputVals[0]);
+				input1 = controller.addInput(10, 5, "A", inputVals[0]);
+				input2 = controller.addInput(10, 43, "B", inputVals[0]);
 			}
 			
 			var conn1 = controller.addConnector(100, 5);
@@ -401,9 +405,10 @@ function Figures(setup, controller, truthTable) {
 			controller.connectComponents(or, output);
 		}
 		else if (figureNum == 'e') { // circuit right before the one bit comparator
-			adjustScale(350, 100, width, height);
-			checkTable(0, 0, 0, 0, 0, 0, 0, 0, 0, true);
-			setup.setRatio(100, 350);
+			truthTable.showTruthTable(false);
+			setup.setInitWidth(370);
+			setup.setInitHeight(150);
+			setup.setMaxWidth(370);
 			
 			var inputA;
 			var inputB;
@@ -430,20 +435,22 @@ function Figures(setup, controller, truthTable) {
 		}
 		else if (figureNum == 12) { // one bit equality
 			var header = ["A", "B", "Z"];
-			adjustScale(800, 250, width, height);
-			checkTable(850, 250, width, height, 0.8, 2, 1, header, false, false);
-			setup.setRatio(300, 900);
+			truthTable.showTruthTable(true);
+			truthTable.createTable(2, 1, header, false);
+			setup.setInitWidth(770);
+			setup.setInitHeight(250);
+			setup.setMaxWidth(900);
 			
 			var input1;
 			var input2;
 			
 			if (inputVals === null) {
-				input1 = controller.addInput(50, 12, "A", 0);
-				input2 = controller.addInput(50, 38, "B", 0);
+				input1 = controller.addInput(10, 12, "A", 0);
+				input2 = controller.addInput(10, 38, "B", 0);
 			}
 			else {
-				input1 = controller.addInput(50, 12, "A", inputVals[0]);
-				input2 = controller.addInput(50, 38, "B", inputVals[1]);
+				input1 = controller.addInput(10, 12, "A", inputVals[0]);
+				input2 = controller.addInput(10, 38, "B", inputVals[1]);
 			}
 			
 			var conn1 = controller.addConnector(100, 12);
@@ -469,9 +476,11 @@ function Figures(setup, controller, truthTable) {
 		}
 		else if (figureNum == 13) { // half adder
 			var header = ["A", "B", "C", "S"];
-			adjustScale(900, 250, width, height);
-			checkTable(950, 250, width, height, 0.8, 2, 2, header, false, false);
-			setup.setRatio(300, 1000);
+			truthTable.showTruthTable(true);
+			truthTable.createTable(2, 2, header, false);
+			setup.setInitWidth(875);
+			setup.setInitHeight(300);
+			setup.setMaxWidth(1050);
 			
 			var input1;
 			var input2;
@@ -517,25 +526,28 @@ function Figures(setup, controller, truthTable) {
 		}
 		else if (figureNum == 16) { // 3-8 decoder
 			var header = ["A2", "A1", "A0", "D7", "D6", "D5", "D4", "D3", "D2", "D1", "D0"];
-			adjustScale(750, 750, width, height);
-			checkTable(810, 750, width, height, 0.8, 3, 8, header, false, false);
-			setup.setRatio(750, 850);
+			//adjustScale(700, 750, width, height);
+			//checkTable(750, 750, width, height, 0.8, 3, 8, header, false, false);
+			//setup.setRatio(650, 700);
+			truthTable.showTruthTable(true);
+			truthTable.createTable(3, 8, header, false);
 			setup.setInitHeight(750);
-			setup.setInitWidth(850);
+			setup.setInitWidth(750);
+			setup.setMaxWidth(1200);
 			
 			var input1;
 			var input2;
 			var input3;
 			
 			if (inputVals === null) {
-				input3 = controller.addInput(50, 125, "A2", 0);
-				input2 = controller.addInput(50, 65, "A1", 0);
-				input1 = controller.addInput(50, 5, "A0", 0);
+				input3 = controller.addInput(10, 125, "A2", 0);
+				input2 = controller.addInput(10, 65, "A1", 0);
+				input1 = controller.addInput(10, 5, "A0", 0);
 			}
 			else {
-				input3 = controller.addInput(50, 125, "A2", inputVals[0]);
-				input2 = controller.addInput(50, 65, "A1", inputVals[1]);
-				input1 = controller.addInput(50, 5, "A0", inputVals[2]);
+				input3 = controller.addInput(10, 125, "A2", inputVals[0]);
+				input2 = controller.addInput(10, 65, "A1", inputVals[1]);
+				input1 = controller.addInput(10, 5, "A0", inputVals[2]);
 			}
 			
 			var conn1 = controller.addConnector(85, 5);
@@ -658,6 +670,7 @@ function Figures(setup, controller, truthTable) {
 			adjustScale(600, 400, width, height);
 			checkTable(665, 400, width, height, 1, 8, 3, header, true, false);
 			setup.setRatio(400, 665);
+			setup.setInitHeight(665);
 			
 			var input7;
 			var input6;
@@ -932,18 +945,20 @@ function Figures(setup, controller, truthTable) {
 	
 	function adjustScale(maxWidth, maxHeight, width, height) {
 		var newScale = 1;
-		var curScale = setup.getGScale();
+		//var curScale = setup.getGScale();
 		
 		var widthScale = width / maxWidth;
 		if (widthScale <= 1) newScale = widthScale;
 		
 		//console.log("MaxHeight: " + height + " :: " + (newScale * maxHeight));
+		/*
 		if (height < newScale * maxHeight) {
 			var heightScale = height / maxHeight;
 			if (heightScale <= 1) newScale = heightScale;
 		}
-		scale = newScale;
-		setup.setGScale(newScale);
+		*/
+		//scale = newScale;
+		//setup.setGScale(newScale);
 	}
 	
 	function checkTable(maxWidth, maxHeight, width, height, thresh, numIn, numOut, header, specialCase, visibleOverride) {

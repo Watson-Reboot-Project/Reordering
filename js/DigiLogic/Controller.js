@@ -98,13 +98,13 @@ function Controller(setup, truthTable) {
 	function registerComponent(comp)
 	{
 		if (comp.getType() == "input") {
-			comp.getGroup().on('click touch', function(event) {
+			comp.getGroup().on('click tap', function(event) {
 				nodeMouseDown(event, comp);
 				mainLayer.drawScene();
 			});
 		}
 		else {
-			comp.getGroup().on('click touch', function (event) {
+			comp.getGroup().on('click tap', function (event) {
 				compMouseDown(event, comp);
 			});
 		}
