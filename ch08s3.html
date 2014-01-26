@@ -23,7 +23,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.3 DATA TYPES, CONSTANTS, VARIABLES</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -90,17 +90,37 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08s2.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; left: auto; right:1px; top:45%;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s4.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
 			
-			<p class="Section">
-				8.3 &nbsp; Data types, constants, variables
-			</p>
-
-			<div>
+			<p>
 				The kinds of values that can be expressed in a programming language are known as its <span class="Bolded">data types</span>. The Watson Graphics Language of Chapter 6 supported data types relevant to drawing graphical images, such as distance, point, circle, and color. Watson JavaScript supports only two data types: text and numbers<span class="Footnote_20_Symbol"><span class="Footnote_20_anchor" title="Footnote: Full JavaScript includes a third data type called Boolean. Additionally, the type we refer to as “text” in this chapter is generally called “string” when discussing full JavaScript, as opposed to Watson JavaScript."><a href="#ftn1" id="body_ftn1">1</a></span></span>. The <span class="Subfigure">Text</span> data type gives Watson JavaScript the ability to represent non-numeric data such as names, addresses, English phrases, etc. The <span class="Subfigure">Numeric</span> data type allows the language to manipulate numbers, both positive and negative, whole numbers and fractions.
-			</div>
+			</p>
 
 			<p>
 				You may recall from your study of the Watson Graphics Language that a <span class="Bolded">constant</span> was defined as a value of a particular type that does not change over time. Both numbers and text may be expressed as constants in Watson JavaScript. <span class="Bolded">Numeric constants</span> are composed of the digits 0 through 9 together with an optional leading “+” or “-” sign and an optional decimal point. Numeric constants may not contain commas, dollar signs, or any other special symbols. The following are valid Watson JavaScript numeric constants:
@@ -117,24 +137,19 @@
 			<p>
 				A <span class="Bolded">text constant</span> consists of a sequence of characters enclosed in double quote marks. The following are examples of valid Watson JavaScript string constants:
 			</p>
+			
+			<ul class="Blockcenter">
+				<li>“She turned me into a newt.”</li>
+				<li>“I got better.”</li>
+				<li>“Very small rocks.”</li>
+			</ul>
 
-			<p class="P85">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  “She turned me into a newt.”
-			</p>
-
-			<p>
-				&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; “I got better.”
-			</p>
-
-			<p>
-				&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; “Very small rocks.”
-			</p>
 
 			<p>
 				The value of a text constant is the actual sequence of characters appearing between the quote marks. Hence, <span class="Italicized">The Holy Grail</span> is the value of the text constant <span class="Italicized">“The Holy Grail”</span>. The only character disallowed in a text constant is the double quote mark itself, since that symbol is used to mark the beginning and end of a text string. Hence, the following is not a valid text constant:
 			</p>
 
-			<p class="Figure">
+			<p class="Blockcenter">
 				“I think “Monster House” rules!”
 			</p>
 
@@ -143,11 +158,7 @@
 			</p>
 
 			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="P60">
-				<span class="Subfigure">var</span><span class="Italicized">name</span><span class="Subfigure">; //</span><span class="Italicized">type</span>
+				var <span class="Italicized">name</span>; //<span class="Italicized">type</span>
 			</p>
 
 			<p>
@@ -163,7 +174,7 @@
 			</p>
 
 			<p class="Subfigure">
-				var firstName; Text
+				var firstName; // Text
 			</p>
 
 			<p>	It is important for you to realize that while human programmers generally try to give variables names that reflect the use to which they will be put, the variable name itself doesn’t mean anything to the computer.  For example, the numeric variable <span class="Subfigure">age</span> can be used to hold any number<span class="Footnote_20_Symbol"><span class="Footnote_20_anchor" title="Footnote: Within the supported range."><a href="#ftn2" id="body_ftn2">2</a></span></span>, not just an age. It is perfectly legal for <span class="Subfigure">age</span> to hold the number of students in a class, or the number of eggs in your refrigerator. The computer couldn’t care less. Human programmers, on the other hand, generally care a great deal. They expect a variable’s name to accurately reflect its purpose, so while it is possible to do so, it would be considered poor programming practice to use the variable <span class="Subfigure">age</span> to store anything other than an age.
@@ -192,211 +203,211 @@
 						<col width="139"/>
 					</colgroup>
 
-					<tr class="Table11">
-						<td class="Table1_A1" style="text-align:left;width:0.3306in;">
+					<tr>
+						<td style="text-align:left;width:0.3306in;">
 						<p>
 							a.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.1472in;">
+						<td style="text-align:left;width:1.1472in;">
 						<p>
 							1999
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.7389in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.7389in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3014in;">
+						<td style="text-align:left;width:0.3014in;">
 						<p>
 							f.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.625in;">
+						<td style="text-align:left;width:1.625in;">
 						<p>
 							“green eggs and ham”
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.2903in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.2903in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3347in;">
+						<td style="text-align:left;width:0.3347in;">
 						<p>
 							k.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.25in;">
+						<td style="text-align:left;width:1.25in;">
 						<p>
 							3.14159
 						</p></td>
 					</tr>
 
-					<tr class="Table11">
-						<td class="Table1_A1" style="text-align:left;width:0.3306in;">
+					<tr>
+						<td style="text-align:left;width:0.3306in;">
 						<p>
 							b.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.1472in;">
+						<td style="text-align:left;width:1.1472in;">
 						<p>
 							21,256
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.7389in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.7389in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3014in;">
+						<td style="text-align:left;width:0.3014in;">
 						<p>
 							g.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.625in;">
+						<td style="text-align:left;width:1.625in;">
 						<p>
 							$5.00
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.2903in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.2903in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3347in;">
+						<td style="text-align:left;width:0.3347in;">
 						<p>
 							l.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.25in;">
+						<td style="text-align:left;width:1.25in;">
 						<p>
 							+15
 						</p></td>
 					</tr>
 
-					<tr class="Table11">
-						<td class="Table1_A1" style="text-align:left;width:0.3306in;">
+					<tr>
+						<td style="text-align:left;width:0.3306in;">
 						<p>
 							c.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.1472in;">
+						<td style="text-align:left;width:1.1472in;">
 						<p>
 							“Sam”
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.7389in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.7389in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3014in;">
+						<td style="text-align:left;width:0.3014in;">
 						<p>
 							h.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.625in;">
+						<td style="text-align:left;width:1.625in;">
 						<p>
 							Train
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.2903in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.2903in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3347in;">
+						<td style="text-align:left;width:0.3347in;">
 						<p>
 							m.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.25in;">
+						<td style="text-align:left;width:1.25in;">
 						<p>
 							“$5.00”
 						</p></td>
 					</tr>
 
-					<tr class="Table11">
-						<td class="Table1_A1" style="text-align:left;width:0.3306in;">
+					<tr>
+						<td style="text-align:left;width:0.3306in;">
 						<p>
 							d.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.1472in;">
+						<td style="text-align:left;width:1.1472in;">
 						<p>
 							25
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.7389in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.7389in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3014in;">
+						<td style="text-align:left;width:0.3014in;">
 						<p>
 							i.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.625in;">
+						<td style="text-align:left;width:1.625in;">
 						<p>
 							2,001
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.2903in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.2903in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3347in;">
+						<td style="text-align:left;width:0.3347in;">
 						<p>
 							n.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.25in;">
+						<td style="text-align:left;width:1.25in;">
 						<p>
 							37
 						</p></td>
 					</tr>
 
-					<tr class="Table11">
-						<td class="Table1_A1" style="text-align:left;width:0.3306in;">
+					<tr>
+						<td style="text-align:left;width:0.3306in;">
 						<p>
 							e.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.1472in;">
+						<td style="text-align:left;width:1.1472in;">
 						<p>
 							99999999
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.7389in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.7389in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3014in;">
+						<td style="text-align:left;width:0.3014in;">
 						<p>
 							j.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.625in;">
+						<td style="text-align:left;width:1.625in;">
 						<p>
 							“15”
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.2903in;">
-						<p class="P22">
+						<td style="text-align:left;width:0.2903in;">
+						<p>
 							&nbsp;
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:0.3347in;">
+						<td style="text-align:left;width:0.3347in;">
 						<p>
 							o.
 						</p></td>
 
-						<td class="Table1_A1" style="text-align:left;width:1.25in;">
+						<td style="text-align:left;width:1.25in;">
 						<p>
 							“the letter “A” ”
 						</p></td>
@@ -415,6 +426,14 @@
 					</p>
 				</li>
 			</ol>
+			
+			<p class="Section">
+				Footnotes
+			</p>
+
+			<p class="Footnote">
+				<a href="#body_ftn1" id="ftn1">1</a>&nbsp; Full JavaScript includes a third data type called Boolean. Additionally, the type we refer to as “text” in this chapter is generally called “string” when discussing full JavaScript, as opposed to Watson JavaScript.
+			</p>
 
 			<!-- End main content -->
 			<hr />

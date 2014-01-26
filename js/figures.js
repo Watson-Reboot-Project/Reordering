@@ -18,6 +18,7 @@ function Figure(figureNum) {
 	var scopeArr = [];
 	var thisObj = this;
 	var _runButton;
+	var _walkButton;
 	var figDiv;
 	var outputTable;
 	var varBox;
@@ -28,6 +29,12 @@ function Figure(figureNum) {
 	var lastLine = -1;
 	var firstMove = true;
 	var nextRowInd = 0;
+	var slidDown = false;
+	var promptInput = "";
+	var promptFlag = false;
+	var editCellID;
+	var attemptingToRun = false;
+	var shiftDown = false;
 	
 	this.walkButton = walkButton;
 	this.runButton = runButton;
@@ -126,7 +133,7 @@ function Figure(figureNum) {
 						</div> \
 						<div class="rightbuttons" style="height:100%;"> \
 								<button type="button" style="margin-left:5%; margin-top:5px;" id="fig' + figureNum + 'Run">Run</button> \
-								<button type="button" style="margin-right:5%; margin-top:5px;" onclick="figure' + figureNum + '.walkButton()">Walk</button> \
+								<button type="button" style="margin-right:5%; margin-top:5px;" id="fig' + figureNum + 'Walk" onclick="figure' + figureNum + '.walkButton()">Walk</button> \
 							</div> \
 						<div class="bottomrightcontent" id="fig'+ figureNum + 'OutVarBox"style="clear: left;"> \
 							<h4>&nbsp;&nbsp;&nbsp;Variables</h4> \
@@ -137,7 +144,7 @@ function Figure(figureNum) {
 						<div class="toprightcontent" style="clear: left; "> \
 							<h4>&nbsp;&nbsp;&nbsp;Program Output</h4> \
 							<div id="fig' + figureNum + 'OutputBox" class="bottomrighttxtarea"> \
-							<table id="fig' + figureNum + 'OutputTable" class="righttxtarea" style="white-space:nowrap;" readonly></table> \
+							<table id="fig' + figureNum + 'OutputTable" class="righttxtarea" style="white-space:nowrap;"></table> \
 							</div> \
 						</div> ';	
 													
@@ -154,15 +161,16 @@ function Figure(figureNum) {
 	editor = new Editor(editorTable, figureNum);
 	codeStr = setupFigure(figureNum);
 	_runButton = document.getElementById("fig" + figureNum + "Run");
+	_walkButton = document.getElementById("fig" + figureNum + "Walk");
 	
 	$("#fig" + figureNum + "Run").click(function() {
 	    $("#fig" + figureNum + "OutVarBox").slideUp(function() {
 			runButton();
+			slidDown = false;
 	    });
 	});
-	$("#fig" + figureNum + "Walk").click(function() {
-	    $("#fig" + figureNum + "OutVarBox").slideDown("medium");
-	});
+	
+	$("#fig" + figureNum + "OutVarBox").slideUp("medium");
 	
 	/*
 	* setupFigure()
@@ -588,7 +596,8 @@ function Figure(figureNum) {
 		var wrapper2 = function (text1, text2) {
 			text1 = text1 ? text1.toString() : '';
 			text2 = text2 ? text2.toString() : '';
-			return interpreter.createPrimitive(prompt(text1, text2));
+			//return interpreter.createPrimitive(promptFunc(text1, text2));
+			return interpreter.createPrimitive(stopPrompt())
 		}
 		interpreter.setProperty(scope, 'prompt', interpreter.createNativeFunction(wrapper2));
 
@@ -622,6 +631,141 @@ function Figure(figureNum) {
 		var row = outputTable.insertRow(outputTable.rows.length);
 		row.insertCell(0);
 	}
+	
+	function stopPrompt() {
+		var temp = promptInput;
+		promptInput = "";
+		return temp;
+	}
+
+	function promptFunc(promptType, text1) {
+		var cell = outputTable.rows[outputTable.rows.length - 1].cells[0];
+		cell.setAttribute("style", "height:1em");
+		cell.textContent += text1.slice(1, text1.length - 1);
+		var row = outputTable.insertRow(outputTable.rows.length);
+		row.insertCell(0);
+		cell.contentEditable = false;
+		
+		cell = outputTable.rows[outputTable.rows.length - 1].cells[0];
+		cell.style.color = "red";
+		cell.contentEditable = true;
+
+		var id = "fig" + figureNum + "TD" + (outputTable.rows.length - 1);
+		cell.setAttribute("id", id);
+		cell.setAttribute("type", "number");
+		editCellID = id;
+		
+		console.log("Prompt:" + promptType);
+		if (promptType == "numeric") setupNumericPrompt(id);
+		else setupStringPrompt(id);
+		
+		$('#' + id).focus();
+		row = outputTable.insertRow(outputTable.rows.length);
+		row.insertCell(0);
+		
+		return promptInput;
+	}
+	
+	function setupNumericPrompt(id) {
+		console.log("Setting this.");
+		$("#" + id).keyup(function (event) {
+			var code = event.which || event.keyCode;
+			if (code == 16) {
+				shiftDown = false;	// since this is key up, shift down is now false
+			}
+			
+			promptInput = document.getElementById(id).textContent;	// update the prompt input upon each key up
+		});
+	
+		$("#" + id).keydown(function (event) {
+			var code = event.which || event.keyCode;
+			console.log("Here.");
+			console.log("Code: " + code);
+			if (code == 16) {
+				shiftDown = true;	// shift key, don't allow anything while this is held down
+			}
+			else if (code == 8 || (code >= 37 && code <= 57) || (code >= 96 && code <= 105)) {
+				// allow this
+			}
+			else if (code == 109 || code == 189 || code == 173) {	// a dash (negative number possibility)
+				console.log("Dash detected.");
+				if (promptInput.length != 0) { event.preventDefault(); return; } // only allow a dash at the 0 index position
+			}
+			else if (code == 10 || code == 13) {
+				// enter key, allow it for now (will be caught by key press)
+			}
+			else event.preventDefault();
+		});
+	
+		$("#" + id).keypress(function (event) {
+			var cell = document.getElementById(id);
+			var code = event.which || event.keyCode;
+			if (shiftDown == true) {
+				event.preventDefault();	// if shift is down, ignore the key regardless of key code
+				return;
+			}	
+			
+			if (code == 10 || code == 13) {	// enter key was pressed
+				event.preventDefault();
+				if (cell.textContent == "" || cell.textContent.length == 0) {
+					alert("You should probably enter some input first!");
+					return;
+				}
+				
+				cell.contentEditable = false;
+				promptFlag = false;
+				
+				if (runMode == true || attemptingToRun == true) { attemptingToRun = false; runMode = false; runButton(); }
+				else { walkButton(); }
+			}
+		});
+	}
+	
+	function setupStringPrompt(id) {
+		$("#" + id).keyup(function (event) {	
+			promptInput = document.getElementById(id).textContent;	// update the prompt input upon each key up
+		});
+	
+		$("#" + id).keydown(function (event) {
+			var code = event.which || event.keyCode;
+			if (code == 10 || code == 13) {
+				// enter key, allow it for now (will be caught by key press)
+			}
+		});
+	
+		$("#" + id).keypress(function (event) {
+			var cell = document.getElementById(id);
+			var code = event.which || event.keyCode;	
+			
+			if (code == 10 || code == 13) {	// enter key was pressed
+				event.preventDefault();
+				if (cell.textContent == "" || cell.textContent.length == 0) {
+					alert("You should probably enter some input first!");
+					return;
+				}
+				
+				cell.contentEditable = false;
+				promptFlag = false;
+				
+				if (runMode == true || attemptingToRun == true) { attemptingToRun = false; runMode = false; runButton(); }
+				else { walkButton(); }
+			}
+		});
+	}
+	
+	function appendOutput(question, text) {
+		var cell = outputTable.rows[outputTable.rows.length - 1].cells[0];
+		cell.setAttribute("style", "height:1em");
+		cell.textContent += question;
+		var row = outputTable.insertRow(outputTable.rows.length);
+		row.insertCell(0);
+		
+		cell = outputTable.rows[outputTable.rows.length - 1].cells[0];
+		cell.setAttribute("style", "height:1em");
+		cell.innerHTML += "<font color='red'><b><i>" + text + "</b></i></font>";
+		row = outputTable.insertRow(outputTable.rows.length);
+		row.insertCell(0);
+	}
 
 	function parseButton() {
 		var code = document.getElementById('code').value
@@ -630,21 +774,88 @@ function Figure(figureNum) {
 	}
 	
 	function walkButton() {
-		if (done) { reset(); return; }
+		if (done == true) { reset(); return; }
+		if (attemptingToRun == true || runMode == true) {
+			outputTable.innerHTML = "";
+			varTable.innerHTML = "";
+			slideVarBox("up");
+			reset();
+			return;
+		}
+		
+		if (checkIfPrompt(true) == true) return;
+		
+		slideVarBox("down");
 		
 		if (myInterpreter === null) myInterpreter = new Interpreter(codeStr, init, thisObj);
 		if (runMode == true) {
 			clearInterval(intervalID);
 			runMode = false;
-			_runButton.innerText = "Run";
-			$("#fig" + figureNum + "OutVarBox").slideDown("medium", function() {
-				varBox.scrollTop = varBox.scrollHeight;
-	    	});
+			_runButton.textContent = "Run";
+			slideVarBox("down");
 			return;
 		}
 		while (walk() == false) { }
 	}
-
+	
+	function runButton() {
+		if (done) reset();
+	
+		if (runMode == true) {
+			clearInterval(intervalID);
+			_runButton.textContent = "Run";
+			_walkButton.textContent = "Walk";
+			runMode = false;
+			slideVarBox("down");
+			
+			return;
+		}
+		else {
+			if (attemptingToRun == false && checkIfPrompt(false) == true) {
+				$("#" + editCellID).focus();
+				attemptingToRun = true;
+				_runButton.textContent = "Pause";
+				_walkButton.textContent = "Reset";
+				return;
+			}
+			else if (attemptingToRun == true && checkIfPrompt(false) == true) {
+				attemptingToRun = false;
+				_runButton.textContent = "Run";
+				_walkButton.textContent = "Walk";
+				slideVarBox("down");
+				return;
+			}
+			else if (attemptingToRun == true) {
+				attemptingToRun = false;
+				_runButton.textContent = "Run";
+				_walkButton.textContent = "Walk";
+				runMode = false;
+				slideVarBox("down");
+				return;
+			}
+		}
+		
+		_walkButton.textContent = "Reset";
+		_runButton.textContent = "Pause";
+		if (myInterpreter === null) myInterpreter = new Interpreter(codeStr, init, thisObj);
+		
+		runMode = true;
+		intervalID = setInterval(walk, 100);
+	}
+	
+	function slideVarBox(dir) {
+		if (!slidDown && dir == "down") {
+			$("#fig" + figureNum + "OutVarBox").slideDown("medium", function() {
+				varBox.scrollTop = varBox.scrollHeight;
+				slidDown = true;
+			});
+		}
+		else if (slidDown && dir == "up") {
+			$("#fig" + figureNum + "OutVarBox").slideUp("medium");
+			slidDown = false;
+		}
+	}
+	
 	function walk() {
 		var res;
 		var node;
@@ -654,13 +865,12 @@ function Figure(figureNum) {
 		var status;
 		
 		if (done == true) {
-			_runButton.innerText = "Run";
+			_runButton.textContent = "Run";
 			reset();
 			return true;
 		}
 		
 		if (firstMove == true) {
-			//outputBox.value = "";
 			outputTable.innerHTML = "";
 			var row = outputTable.insertRow(0);
 			row.insertCell(0);
@@ -670,7 +880,14 @@ function Figure(figureNum) {
 		}
 
 		while (flag == false) {
-			editor.checkPromptFlag();
+			var promptRes = editor.checkPromptFlag();
+			if (promptRes[0] == true) {
+				promptFunc(promptRes[1], promptRes[2]);
+				haltFlag = true;
+				promptFlag = true;
+				if (runMode == true) clearInterval(intervalID);
+			}
+			
 			if (myInterpreter.step() == false) {
 				flag = true;
 				done = true;
@@ -678,7 +895,7 @@ function Figure(figureNum) {
 				end = -1;
 			}
 			else {
-				test();
+				pollVariables();
 
 				if (myInterpreter.stateStack[0]) {
 					node = myInterpreter.stateStack[0].node;
@@ -702,54 +919,30 @@ function Figure(figureNum) {
 			
 		}
 
-		/*
-		if (myInterpreter.step() == false) {
-			if (editor.selectLine(-1, -1) == false) {
-				done = true;
-				res = false;
-			}
-			else res = true;
-		}
-		else {
-			res = editor.selectLine(start, end, varArr.length, haltFlag);
-			haltFlag = false;
-			test();
-			
-		}
-		*/
-
 		outputBox.scrollTop = outputBox.scrollHeight;
 		varBox.scrollTop = varBox.scrollHeight;
 
 		return true;
 	}
 
-	function runButton() {
-		if (done) reset();
-		if (runMode == true) {
-			clearInterval(intervalID);
-			_runButton.innerText = "Run";
-			runMode = false;
-			$("#fig" + figureNum + "OutVarBox").slideDown("medium", function() {
-				varBox.scrollTop = varBox.scrollHeight;
-	    	});
-			
-			return;
+	function checkIfPrompt(alertFlag) {
+		if (promptFlag == true && (promptInput == "" || promptInput.length == 0)) {
+			if (alertFlag) alert("You must enter input before you can do that.");
+			$('#' + editCellID).focus();
+			return true;
 		}
-		_runButton.innerText = "Stop";
-		if (myInterpreter === null) myInterpreter = new Interpreter(codeStr, init, thisObj);
-		
-		runMode = true;
-		intervalID = setInterval(run, 100);
+		else if (promptFlag == true && promptInput != "") {
+			promptFlag = false;
+			return false;
+		}
 	}
 	
-	function run() {
-		walk();
-		//while(walk() == false);
-	}
-
 	function reset() {
-		_runButton.innerText = "Run";
+		_runButton.textContent = "Run";
+		_walkButton.textContent = "Walk";
+		promptFlag = false;
+		haltFlag = false;
+		attemptingToRun = false;
 		done = false;
 		runMode = false;
 		varArr = [];
@@ -794,7 +987,7 @@ function Figure(figureNum) {
 		updateTable();
 	}
 	
-	function test() {
+	function pollVariables() {
 		var scopeNum;
 		try {
 			scopeNum = getScopeNum(myInterpreter.getScope());
@@ -809,26 +1002,6 @@ function Figure(figureNum) {
 		for (var i = 0; i < varArr.length; i++) {
 			if (getScopeNum(varArr[i][0]) > scopeNum) { updateVariables("del", varArr[i][0], varArr[i][1]); haltFlag = true; }
 		}
-		/*
-		for (var i = 0; i < varArr.length; i++) {
-			if (varArr[i][0] == scope) {
-				console.log("Scope: " + getScopeNum(varArr[i][0]) + " :: Variable: " + varArr[i][1] + " :: Value: " + varArr[i][2]);
-				for (var j = 0; j < varArr.length; j++) {
-					if (i != j && varArr[j].length > 2 && getScopeNum(varArr[j][0]) > getScopeNum(varArr[i][0]) && varArr[i][1] == varArr[j][1]) {
-						console.log("Deleting...");
-						updateVariables("del", varArr[j][0], varArr[j][1]);
-					}
-					else {
-						console.log("i,j: " + i + "," + j);
-						console.log("Length: " + varArr[j].length);
-						console.log("JScope: " + getScopeNum(varArr[j][0]) + "  :: iScope: " + getScopeNum(varArr[i][0]));
-						console.log("jName: " + varArr[j][1] + " :: iName: " + varArr[i][1]);
-						console.log(varArr[j][1]);
-					}
-				}
-			}
-		}
-		*/
 	}
 	
 	function getScopeNum(scope) {
@@ -855,9 +1028,9 @@ function Figure(figureNum) {
 		row = varTable.insertRow(0);
 		for (var i = 0; i < 3; i++) {
 			cell = row.insertCell(i);
-			if (i == 0) cell.innerText = "scope";
-			else if (i == 1) cell.innerText = "variable";
-			else cell.innerText = "value";
+			if (i == 0) cell.textContent = "scope";
+			else if (i == 1) cell.textContent = "variable";
+			else cell.textContent = "value";
 		}
 		
 		for (var i = 0; i < varArr.length; i++) {
@@ -865,14 +1038,13 @@ function Figure(figureNum) {
 			for (var j = 0; j < 3; j++) {
 				scopeNum = getScopeNum(varArr[i][0]);
 				if (scopeNum < 0) {
-					console.log("Deleting " + varArr[i][1] + " in updatetable");
 					varArr.splice(i, 1);
 					break;
 				}
 				cell = row.insertCell(j);
-				if (j == 0) cell.innerText = getScopeNum(varArr[i][0]);
-				else if (j == 1) cell.innerText = varArr[i][1];
-				else cell.innerText = varArr[i][2];
+				if (j == 0) cell.textContent = getScopeNum(varArr[i][0]);
+				else if (j == 1) cell.textContent = varArr[i][1];
+				else cell.textContent = varArr[i][2];
 			}
 		}
 	}

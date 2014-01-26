@@ -10,12 +10,6 @@
 		<title>Watson</title>
 
 		<link rel='stylesheet' href='css/generalmedia.css'>
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-		<link href='css/ch08.css' rel='stylesheet' type="text/css">
-		
-		<script src="js/jquery-1.10.2.js"></script>
-		<script src="js/jquery-ui.js"></script>
-		
 		<meta name="description" content="">
 		<meta name="author" content="Burt">
 
@@ -29,7 +23,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 id="header">8.1 INTRODUCTION</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.1 INTRODUCTION</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -96,6 +90,30 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; left: auto; right:1px; top:45%;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s2.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
@@ -118,9 +136,6 @@
 			<p>
 				Object-oriented, imperative languages are, by far, the most popular type of programming languages. Both Java and C++ are object-oriented, imperative languages. The Watson Graphics Language, WGL, is also an imperative language, though it is not object-oriented.
 			</p>
-			
-			<div id="fig22Div"></div>
-			<p class="Figure">Figure x: Look at this ultra rad figure</p>
 
 			<p>
 				This chapter continues the exploration of the imperative paradigm by discussing Watson JavaScript. Watson JavaScript is an extended subset of JavaScript, a widely used imperative programming language incorporated into many web pages. Using Watson JavaScript, we will examine programming structures common to most imperative programming languages. A relatively large number of small programs will be presented in order to illustrate how these program structures can be used to solve problems.
@@ -129,10 +144,7 @@
 			<p>
 				The chapter following this one, Chapter 9, discusses the functional and logical programming paradigms. Functional programming is illustrated with the language Lisp. Logic programming is introduced with Prolog. Both of these languages are frequently used in the study of A. I., or artificial intelligence.
 			</p>
-			
-			<div id="fig30Div"></div>
-			
-			<p class="Figure">Figure y: Look at this super cool figure</p>
+
 			<p>
 				The last chapter in this part of the book is Chapter 10: Building Large Software Systems. Chapter 10 begins with a discussion of object-oriented programming. Object-oriented features influence the ways in which the parts of a program are organized and how they communicate with one another. Object-oriented languages are extremely useful for writing complex programs that support mouse-based, graphical user interfaces. Chapter 10 also includes an introduction to the field of software engineering, which focuses on the unique challenges that must be faced when constructing large programs, such as those that require many thousands of worker-hours to complete.
 			</p>
@@ -163,13 +175,5 @@
 				</p>
 			</footer>
 		</div>
-		<script src="js/acorn.js"></script>
-	    <script src="js/interpreter.js"></script>
-	    <script src="js/editor.js"></script>
-		<script src="js/figures.js"></script>
-		<script>
-		var figure22 = new Figure(22);
-		var figure30 = new Figure(30);
-	</script>
 	</body>
 </html>

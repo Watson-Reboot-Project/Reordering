@@ -1005,7 +1005,7 @@ function Editor(codeTable, prefix) {
 			else if(cellText.indexOf("var") >= 0) rowType.push("variable");
 			else if(cellText.indexOf("{") >= 0) rowType.push("closeBracket");
 			else if(cellText.indexOf("}") >= 0) rowType.push("openBracket");
-			else if(innerTable.rows[0].cells[4].textContent.indexOf("parse") >= 0) rowType.push("prompt");
+			else if(innerTable.rows[0].cells[4].textContent.indexOf("parse") >= 0) rowType.push("numericPrompt");
 			else if(innerTable.rows[0].cells[4].textContent.indexOf("prompt") >= 0) rowType.push("prompt");
 			else if(innerTable.rows[0].cells[3].textContent.indexOf("=") >= 0) rowType.push("assignment");
 			else { rowType.push("functionCall"); funcCall = true; }
@@ -1076,7 +1076,8 @@ function Editor(codeTable, prefix) {
 				if (lineNums[i] == rowNum) { return [ false, rowNum ]; }
 				else {
 					rowNum = lineNums[i];
-					if (rowType[rowNum] == 'prompt') { promptFlag = true; }
+					if (rowType[rowNum].indexOf('numeric') >= 0) { promptFlag = [ true, "numeric" ]; }
+					else if (rowType[rowNum].indexOf('prompt') >= 0) { promptFlag = [ true, "string" ]; }
 					return [true, selRow];
 				}
 			}
@@ -1085,10 +1086,21 @@ function Editor(codeTable, prefix) {
 	}
 	
 	function checkPromptFlag() {
-		if (promptFlag) {
-			promptFlag = false;
+		if (promptFlag[0]) {
+			var type = promptFlag[1];
+			promptFlag = [ false, "" ];
 			selectLine(rowNum);
+			var promptStr;
+			var innerTable = codeTable.rows[rowNum].cells[0].children[0];
+			for (var i = 2; i < innerTable.rows[0].cells.length; i++) {
+				cell = innerTable.rows[0].cells[i];
+				if (cell.textContent.indexOf('"') >= 0) {
+					promptStr = cell.textContent;
+					return [ true, type, promptStr ];
+				}
+			}
 		}
+		return [ false, "", "" ];
 	}
 	
 	function selectLine(row) {
