@@ -1,7 +1,6 @@
 body {
     background-color: white;
     color: black;
-    /* font-size: 87.5%; */
     font-family: monospace;
     line-height: 1;
     text-align: left;
@@ -43,26 +42,13 @@ button[type=button] {
 	overflow: auto;
 }
 
-div {
+.divness {
 	width:95%;
 	margin:auto auto;
 	font-family:monospace;
 	overflow: auto;
 }
-/*
-.middlecontent {
-    width: auto;
-    float: left;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    margin-top: 2.9%;
-    padding-top: 1px;
-    padding-right: 1px;
-    background-color:lightgrey;
-    opacity:0.5;
-}
-*/
+
 .toprightcontent {
     width: 96%;
     float: left;
@@ -70,9 +56,7 @@ div {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     margin-top: 0.5%;
-    /* padding-left: 5.5px; */
 }
-
 .toprightcontent h4 {
     padding: 0%;
     margin: 0%;
@@ -80,38 +64,32 @@ div {
 
 .righttxtarea {
     width: 96%;
-	/* height: 100%; */
     resize: none;
 }
 
 .rightbuttons {
 	width:50%;
 	height:100%
-	/* margin:auto auto; */
 	padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 2px;
 }
-
 .bottomrightcontent {
-    width: 96%;
+    width: 94%;
     float: left;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     margin-top: 0.5%;
-    /* padding-left: 5.5px; */
 }
-
 .bottomrighttxtarea {
 	overflow:auto;
-    width: 96%;
+    width: 94%;
 	height: 100px;
     resize: none;
 	border: 1px solid black;
 }
-
 .bottomrightcontent h4 {
     padding: 0%;
     margin: 0%;
@@ -123,6 +101,7 @@ div {
 	padding: 0px;
 	margin: 0px;
 }
+
 .codeTd {
 	border:none;
 	border-collapse:collapse;
@@ -134,6 +113,7 @@ div {
 	white-space: nowrap;
 	margin: 0px;
 }
+
 .innerTable5 {
 	border: none;
 	border-collapse:collapse;
@@ -254,6 +234,7 @@ div {
 	padding: 0px;
 	margin: 0px;
 }
+
 .normal {
 	border-spacing: 15px 1px;
 	border-collapse: separate;

@@ -89,15 +89,15 @@ a:active {
 	margin:0 auto;
 	
 }
-.Subblockcenter {
+.Subblockcenter { /* Within the Blockcenter class for further indentations */
 	list-style:none;
 }
-.Image { /* Centers images */
+.Image { /* Centers images, specifically square or wider*/
 	margin: 0 auto;
 	display: block;
 	width:70%;
 }
-.ImageTall {
+.ImageTall { /* Same as above but to retain some uniformity in size, imags with a larger height than width use this */
 	margin: 0 auto;
 	display: block;
 	width:40%;
@@ -107,14 +107,14 @@ a:active {
 	display: block;
 }
 .sdfootnotesym { /*Autodefined footnote name, same as below */
-	font-size: small;
+	font-size: 80%;
 	vertical-align: top;
 }
 .Footnote { /* Used with footnotes */
-	font-size: small;
+	font-size: 80%;
 	vertical-align:top;
 }
-.Emphasized {
+.Emphasized { /* Bold, italic, and center for super emphasis */
 	font-weight: bold;
 	font-style: italic;
 	text-align: center;
@@ -125,26 +125,27 @@ a:active {
 .Italicized { /* For use with font-differentiated subfigures */
 	font-family:monospace;
 	font-style:italic;
+	font-size:120%;
 }
 .Ital { /* For use with other italic needs */
 	font-style:italic;
 }
-.Underlined {
+.Underlined { /* Underlines inner text */
 	text-decoration:underline;
 }
-.Superscript {
-	font-size:xx-small;
+.Superscript { /* Manual superscript so we can manipulate and scale size */
+	font-size:40%;
 	vertical-align:top;
 }
-.Subscript {
-	font-size:xx-small;
+.Subscript { /* Same as above but sub */
+	font-size:40%;
 	vertical-align:bottom;
 }
-.Center {
+.Center { /* Centers with limited width */
 	width:70%;
 	margin: auto auto;
 }
-.Centered {
+.Centered { /* Full center */
 	margin: 0 auto;
 	text-align: center;
 }

@@ -9,9 +9,9 @@
 
 		<title>Watson</title>
 
-		<link rel='stylesheet' href='css/generalmedia.css'>
 		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 		<link href='css/ch08.css' rel='stylesheet' type="text/css">
+		<link rel='stylesheet' href='css/generalmedia.css'>
 		
 		<script src="js/jquery-1.10.2.js"></script>
 		<script src="js/jquery-ui.js"></script>
@@ -29,7 +29,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.4 INPUT AND OUTPUT STATEMENTS</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -96,13 +96,33 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%; opacity:0.5;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08s3.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; left: auto; right:1px; top:45%; opacity:0.5;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s5.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
-			<p class="Section">
-				8.4 &nbsp; Input and output statements
-			</p>
-
 			<p>
 				In order for a computer program to perform any useful work, it must be able to communicate with the outside world. The process of communicating with the outside world is known as input/output or I/O. Watson JavaScript includes two output statements for displaying information on the computer’s screen, and two input statements – one for reading in text input, the other for reading in numeric input. Most imperative languages include mechanisms for performing other kinds of I/O such as detecting where the mouse is pointing and accessing the contents of a disk drive.
 			</p>
@@ -111,14 +131,11 @@
 				The two output statements included in Watson JavaScript are <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span>. These statements are of the general form:
 			</p>
 
-			<p class="P115">
-				<span class="T15">&nbsp; </span><span class="Subfigure">document.write(</span><span class="Italicized">expression</span><span class="Subfigure">);</span>
-			</p>
-
-			<p>
-				<span class="T15">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Subfigure">document.writeln(</span><span class="Italicized">expression</span><span class="Subfigure">);</span>
-			</p>
-
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></li>
+			
+				<li><span class="Subfigure">document.writeln(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></li>
+			</ul>
 			<p>
 				where an “expression” can be a constant, a variable, a function call, or a collection of these things connected by appropriate operators. Both the <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span> statements display the value of an expression on the computer screen. The only difference between the two is that <span class="Subfigure">document.writeln</span> starts a new line after printing the value on the screen. For this reason, <span class="Subfigure">document.writeln</span> is pronounced as if it were written “document write line”.
 			</p>
@@ -127,65 +144,37 @@
 				Figure 8.4 contains a simple Watson JavaScript program together with the output produced by the program.
 			</p>
 			<!-- Figure 8.4 -->
-			<p class="P96">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Bolded">Program definition:</span>
-			</p>
+			<ul class="Subblockcenter">
+				<li><span class="Bolded">Program definition:</span></li>
+			</ul>
+			<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">document.writeln("Hello World!");</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+			</ul>
+			
+			<ul class="Subblockcenter">
+				<li><span class="Bolded">Program output:</span></li>
+			</ul>
 
-			<p class="Subfigure">
-				&nbsp;
-			</p>
 
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; &lt;html&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &lt;body&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &lt;pre&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; &lt;script type="text/javascript"&gt;
-			</p>
-
-			<p>
-				<span class="Subfigure">document.writeln("Hello World!");</span>
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; &lt;/script&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &lt;/pre&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; &lt;/body&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; &lt;/html&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p>
-				<span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Bolded">Program output:</span>
-			</p>
-
-			<p class="Subfigure">
-				Hello World!
-			</p>
+			<ul class="Blockcenter">
+				<li class="Subfigure">Hello World!</li>
+				<br />
+			</ul>
 			<!-- End figure 8.4 -->
 			<p class="Figure">
 				Figure 8.4: A Watson JavaScript program and its output
 			</p>
+			<br />
 
 			<p>
 				This program consists of a single instruction:
@@ -206,7 +195,7 @@
 			<p>
 				The program of Figure 8.5 illustrates the difference between <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span>. It also introduces numeric expressions and the concept of sequence. The program consists of three output statements: two <span class="Subfigure">document.write</span> statements followed by a <span class="Subfigure">document.writeln</span>. When run, it produces the following line of output.
 			</p>
-			<!-- Manual figure 8.5
+	
 			<p class="Subfigure">
 				There are 13 cookies in a baker’s dozen.
 			</p>
@@ -231,56 +220,8 @@
 				While it is not apparent in the line shown above, if you look closely at the statement, you will see that a space, or “blank” is supposed to follow the word “are”. Because this statement is a “write” and not a “writeln” a new line of output was not begun after these characters were displayed. Thus, the next program output will immediately follow the characters just printed, on the same line.
 			</p>
 
-			<p>
-				&nbsp;
-			</p>
-
-			<p>
-				&nbsp;
-			</p>
-
-			<p class="P96">
-				&nbsp;  &nbsp;  &nbsp; <span class="Bolded">Program definition:</span>
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				document.write("There are ");
-			</p>
-
-			<p class="Subfigure">
-				document.write(12 + 1);
-			</p>
-
-			<p class="Subfigure">
-				document.writeln(" cookies in a baker’s dozen.");
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p>
-				<span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Bolded">Program output:</span>
-			</p>
-
-			<p class="P85">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				There are 13 cookies in a baker’s dozen.
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-			-->
 			<!-- Figure 8.5 interactive -->
-			<div id="fig5Div"></div>
+			<div id="fig5Div" class="divness"></div>
 			<!-- End figure 8.5 interactive -->
 			<p class="Figure">
 				Figure 8.5: &nbsp; A Watson JavaScript program that outputs both text and numbers
@@ -290,7 +231,7 @@
 				The position that the next character will be printed in is often indicated by the underscore symbol, _. Using this symbol, it is easy to see that a space does indeed follow the word “are” in the output.
 			</p>
 
-			<p class="P60">
+			<p class="Subfigure">
 				<span class="Subfigure">There are</span> _
 			</p>
 
@@ -306,26 +247,27 @@
 				This statement contains the mathematical expression 12 + 1 which evaluates to the number 13. Since “Write” and “WriteLn” statements display the <span class="Italicized">value</span> of an expression, and not the expression itself, 13 will be printed next. The program’s output now looks like the following, with the print position immediately following the 13.
 			</p>
 
-			<p class="P60">
-				<span class="Subfigure">There are 13</span>_
+			<p class="Subfigure">
+				<span class="Subfigure">There are 13</span><span class="Bolded"> _</span>
 			</p>
 
 			<p>
 				It is important that you pay close attention to whether or not an expression is surrounded by quote marks when attempting to determine its value. If an expression is surrounded by quote marks then the characters between those quotes represent the value of the expression. If the expression is not quoted, then its value must be determined by performing the operations specified in the expression. Thus,
 			</p>
-
-			<p class="Subfigure">
-				<span class="Subfigure">document.write(12+1); &nbsp;  &nbsp;  &nbsp; </span> prints &nbsp;  13
-			</p>
+			<br />
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(12+1); &nbsp;  &nbsp;  &nbsp; </span> prints &nbsp;  13</li>
+			</ul>
 
 			<p>
 				but
 			</p>
 
-			<p class="P87">
-				<span class="Subfigure">document.write(“12+1”); &nbsp;  &nbsp; </span> prints &nbsp;  12 + 1
-			</p>
-
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(“12+1”); &nbsp;  &nbsp; </span> prints &nbsp;  12 + 1</li>
+			</ul>
+			<br />
+			
 			<p>
 				Continuing with the example, the third and last statement of the program
 			</p>
@@ -337,15 +279,11 @@
 			<p>
 				will now be executed to produce the following:
 			</p>
-
-			<p class="Subfigure">
-				There are 13 cookies in a baker’s dozen.
-			</p>
-
-			<p class="P78">
-				
-			</p>
-
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">There are 13 cookies in a baker’s dozen.</span></li>
+				<li><span class="Subfigure">_</span></li>
+			</ul>
+			<br />
 			<p>
 				Note that this statement is a “writeln” rather than a “write”, so it moves the print position to the next line. Always remember that <span class="Subfigure">document.writeln</span> statements begin a new line <span class="Italicized">after</span> they print the value of their expression on the screen, not before printing.
 			</p>
@@ -355,7 +293,7 @@
 			</p>
 
 			<p class="Subfigure">
-				There are 13 cookies in a baker’s dozen.
+				There are 13cookies in a baker’s dozen.
 			</p>
 
 			<p>
@@ -374,8 +312,8 @@
 				The general format of the text input statement is:
 			</p>
 
-			<p class="P60">
-				<span class="Italicized">variable</span><span class="Subfigure">= prompt(</span><span class="Italicized">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">);</span>
+			<p class="Subfigure">
+				<span class="Italicized">variable </span><span class="Subfigure">= prompt(</span><span class="Italicized">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">);</span>
 			</p>
 
 			<p>
@@ -386,7 +324,7 @@
 				Thus, the text input statement:
 			</p>
 
-			<p class="P47">
+			<p class="Subfigure">
 				firstName = prompt("Please enter your first name.", "unknown");
 			</p>
 
@@ -398,8 +336,8 @@
 				The Watson JavaScript numeric input statement is similar. It has the form:
 			</p>
 
-			<p class="P60">
-				<span class="Italicized">variable</span><span class="Subfigure">=</span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt(</span><span class="T43">message</span><span class="Subfigure">,</span><span class="T43">defaultValue</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
+			<p class="Subfigure">
+				<span class="Ital">variable </span><span class="Subfigure">=</span><span class="Subfigure"> parseFloat(</span><span class="Subfigure">prompt(</span><span class="Ital">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
 			</p>
 
 			<p>
@@ -410,12 +348,8 @@
 				The numeric input statement
 			</p>
 
-			<p>
-				<span class="Subfigure">age</span><span class="Subfigure">=</span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt</span><span class="Subfigure">(</span><span class="Subfigure">“Enter your age.”</span><span class="Subfigure">,</span><span class="Subfigure">0</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
-			</p>
-
 			<p class="Subfigure">
-				&nbsp;
+				<span class="Subfigure">age</span><span class="Subfigure"> = </span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt</span><span class="Subfigure">(</span><span class="Subfigure">“Enter your age.”</span><span class="Subfigure">,</span><span class="Subfigure">0</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
 			</p>
 
 			<p>
@@ -426,87 +360,11 @@
 				Figure 8.6 illustrates the versatility of programs that make use of input statements. The program asks a user to enter his or her name. Next, it stores the characters entered by the user into a text variable called <span class="Subfigure">firstName</span>. The program then prints a greeting using the contents of <span class="Subfigure">firstName</span> along with some additional text strings.
 			</p>
 
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
 			<p>
 				Looking at Figure 8.6 more closely, we see that the first thing this program does is to declare a text variable called <span class="Subfigure">firstName</span>. Next, a text input statement is executed which will prompt the user to enter his or her name, and store the text string entered by that user into the variable <span class="Subfigure">firstName</span>. If the user dismisses the input dialog without entering any text, the default value, an empty string “”, will be stored in <span class="Subfigure">firstName</span>.
 			</p>
-			<!-- Manual fig 8.6
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p>
-				&nbsp;  &nbsp;  &nbsp; <span class="Bolded">Program definition:</span>
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  var firstName; // Text
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  firstName = prompt("Please enter your first name.", "");
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.write("Hello ");
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.write(firstName);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(". Nice to meet you.");
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Bolded">
-				&nbsp;  &nbsp;  &nbsp; Program input/output behavior:
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p>
-				Please enter your first name.
-			</p>
-
-			<p class="P89">
-				Mike
-			</p>
-
-			<p>
-				Hello Mike. Nice to meet you.
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-		-->
-			<div id="fig6Div"></div>
+			
+			<div id="fig6Div" class="divness"></div>
 			<p class="Figure">
 				Figure 8.6: &nbsp; A program that illustrates both input and output of text
 			</p>
@@ -523,7 +381,7 @@
 				Next, the statement &nbsp; <span class="Subfigure">document.write(“Hello ”);</span> &nbsp; prints
 			</p>
 
-			<p class="P60">
+			<p class="Subfigure">
 				<span class="Subfigure">Hello</span> _
 			</p>
 
@@ -535,7 +393,7 @@
 				The next statement &nbsp; <span class="Subfigure">document.write(firstName);</span> &nbsp; will print the current contents of <span class="Subfigure">firstName</span> on the screen. Since this variable contains the text string “Mike”, those character are printed giving the following output
 			</p>
 
-			<p class="P60">
+			<p class="Subfigure">
 				<span class="Subfigure">Hello Mike</span>_
 			</p>
 
@@ -548,24 +406,17 @@
 			</p>
 
 			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
 				document.writeln(“. Nice to meet you.”);
 			</p>
 
 			<p>
 				causes the output to become:
 			</p>
-
-			<p class="Subfigure">
-				Hello Mike. Nice to meet you.
-			</p>
-
-			<p>
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  _
-			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">Hello Mike. Nice to meet you.</span></li>
+				<li><span class="Subfigure">_</span></li>
+			</ul>
 
 			<p>
 				Since this statement is a “writeln”, it moves the print position to the next line of output. The program then terminates.
@@ -705,7 +556,7 @@
 				&nbsp;
 			</p>
 			-->
-			<div id="fig7Div"></div>
+			<div id="fig7Div" class="divness"></div>
 			<p class="Figure">
 				Figure 8.7: &nbsp; A program that illustrates input and output of numeric data
 			</p>
@@ -728,132 +579,61 @@
 						Show exactly what would be printed by the following Watson JavaScript program.&nbsp;
 					</p>
 				</li>
+				
+				<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">document.write(“A”);</span></li>
+					<li><span class="Subfigure">document.write(“B”);</span></li>
+					<li><span class="Subfigure">document.writeln(“C”);</span></li>
+					<li><span class="Subfigure">document.writeln(“1”);</span></li>
+					<li><span class="Subfigure">document.writeln(2);</span></li>
+					<li><span class="Subfigure">document.write(“3”);</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+				</ul>
 
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					&lt;html&gt;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &lt;body&gt;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp; &lt;pre&gt;
-				</p>
-
-				<p class="Subfigure">
-					&lt;script type="text/javascript"&gt;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.write(“A”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.write(“B”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.writeln(“C”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.writeln(“1”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.writeln(2);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp;document.write(“3”);
-				</p>
-
-				<p class="Subfigure">
-					&lt;/script&gt;
-				</p>
-
-				<p class="Subfigure">
-					&lt;/pre&gt;
-				</p>
-
-				<p class="Subfigure">
-					&lt;/body&gt;
-				</p>
-
-				<p class="Subfigure">
-					&lt;/html&gt;
-				</p>
 
 				<li>
-					<p class="P23" style="margin-left:0cm;">
-						<span class="WW8Num15zfalse" style="display:block;float:left;min-width:0.635cm;">2.</span>Write a Watson JavaScript program to produce the following output. Be sure to skip the blank line between the sentences.&nbsp;
-					</p>
+					<p>Write a Watson JavaScript program to produce the following output. Be sure to skip the blank line between the sentences.</p>
 				</li>
-
-				<p class="Subfigure">
-					I will not eat them
-				</p>
-
-				<p class="Subfigure">
-					in the rain.
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					I will not eat them
-				</p>
-
-				<p class="Subfigure">
-					on a train.
-				</p>
+				
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">I will not eat them</span></li>
+					<li><span class="Subfigure">in the rain.</span></li>
+				</ul>
+				<br />
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">I will not eat them</span></li>
+					<li><span class="Subfigure">on a train.</span></li>
+				</ul>
 
 				<li>
-					<p class="P23" style="margin-left:0cm;">
-						<span class="WW8Num15zfalse" style="display:block;float:left;min-width:0.635cm;">3.</span>Modify the program of Figure 8.6 so that it is capable of carrying on “conversations” such as the following, involving both a person’s name and age.&nbsp;
-					</p>
+					<p>Modify the program of Figure 8.6 so that it is capable of carrying on “conversations” such as the following, involving both a person’s name and age.</p>
 				</li>
 			</ol>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">Please enter your first name.</span></li>
+				<li><span class="Italicized">Mike</span></li>
+				<li><span class="Subfigure">Please enter your age.</span></li>
+				<li><span class="Italicized">45</span></li>
+				<li><span class="Subfigure">Hello Mike. Nice to meet you.</span></li>
+				<li><span class="Subfigure">I see that you are 45 years old.</span></li>
+				<li><span class="Subfigure">That's cool.</span></li>
+			</ul>
 
-			<p class="Subfigure">
-				Please enter your first name.
-			</p>
 
-			<p class="Subfigure">
-				Mike
-			</p>
-
-			<p class="Subfigure">
-				Please enter your age.
-			</p>
-
-			<p class="Subfigure">
-				45
-			</p>
-
-			<p class="Subfigure">
-				Hello Mike. Nice to meet you.
-			</p>
-
-			<p class="Subfigure">
-				I see that you are 45 years old.
-			</p>
-
-			<p class="Subfigure">
-				That’s cool.
-			</p>
-
-			<p class="Text_20_body_20_indent">
+			<p>
 				In the above program run, the user’s inputs, <span class="Ital">Mike</span> and <span class="Ital">45</span>, are shown in italics. Your program should work with any name and age, so don’t “hard code” the values <span class="Ital">Mike</span> and <span class="Ital">45</span> into the program.
 			</p>
 			<!-- End main content -->
+			<hr />
 			<p class="Emphasized">
 				<a href="#tippytop">Return to top</a>
 			</p>
@@ -872,12 +652,13 @@
 			<div>
 
 			</div>
-
+			<!--
 			<footer>
 				<p>
 					&copy; Copyright  by Burt
 				</p>
 			</footer>
+			-->
 		</div>
 		<script src="js/acorn.js"></script>
 	    <script src="js/interpreter.js"></script>
@@ -887,6 +668,6 @@
 		var figure5 = new Figure(5);
 		var figure6 = new Figure(6);
 		var figure7 = new Figure(7);
-	</script>
+		</script>
 	</body>
 </html>
