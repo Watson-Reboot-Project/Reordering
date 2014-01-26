@@ -126,7 +126,7 @@ function Figure(figureNum) {
 	
 	figDiv = document.getElementById("fig" + figureNum + "Div");
 	figDiv.innerHTML = '<div class="divness leftcontent" readonly> \
-							<h4>&nbsp;Code Window</h4> \
+							<h4>&nbsp;&nbsp;Program definition</h4> \
 							<div class="txtarea divness" style="height:100%; min-height:200px; max-height:300px; border-style:ridge;"> \
 								<table id="fig' + figureNum + 'Editor" class="codeTable"></table> \
 							</div> \
@@ -142,7 +142,7 @@ function Figure(figureNum) {
 							</div> \
 							</div> \
 						<div class="divness toprightcontent" style="clear: left; "> \
-							<h4>&nbsp;&nbsp;&nbsp;Program Output</h4> \
+							<h4>&nbsp;&nbsp;&nbsp;Program input/output behavior</h4> \
 							<div id="fig' + figureNum + 'OutputBox" class="divness bottomrighttxtarea"> \
 							<table id="fig' + figureNum + 'OutputTable" class="righttxtarea" style="white-space:nowrap;"></table> \
 							</div> \
