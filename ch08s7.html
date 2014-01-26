@@ -29,7 +29,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.7 FUNCTIONS</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -96,15 +96,33 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%; overflow:none; scroll: none;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08s6p3.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; right: 1px; left:auto; top:45%; scroll: none;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s8.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
-			
-
-			<p class="Section">
-				8.7 &nbsp; Functions
-			</p>
-
 			<p>
 				This section is concerned with creating and using function subprograms. A</span> <span class="Bolded">subprogram</span> is a program within a program. Very few “real” programs are written as one long piece of code. Instead, traditional imperative programs generally consist of large numbers of relatively simple subprograms that work together to accomplish some complex task. While it is theoretically possible to write large programs without the use of subprograms, as a practical matter any significant program must be decomposed into manageable pieces if humans are to write and maintain it.
 			</p>
@@ -133,56 +151,8 @@
 				&nbsp;
 			</p>
 
-			<h6 class="P145">&nbsp;  &nbsp;  &nbsp; </span> Main &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; X &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  Y &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Z</h6>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Y(); &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span> X(); &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Z(); &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Figure">
-				&nbsp;
-			</p>
-
+			<img src="Images/fig8-25.png" alt="Subprogram invocation and return" class="Image">
+			
 			<p class="Figure">
 				Figure 8.25: &nbsp; Subprogram invocation and return
 			</p>
@@ -194,26 +164,16 @@
 			<p>
 				Watson JavaScript supports only one type of subprogram, known a function. The general format of a Watson JavaScript function definition is:
 			</p>
-
-			<p class="P112">
-				<span class="Subfigure">function</span><span class="Italicized">name</span><span class="Subfigure">(</span><span class="Italicized">input variables <span class="Subfigure">) // returns</span> <span class="Italicized">type
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>{
-			</p>
-
-			<p class="P74">
-				<span class="T15">&nbsp;  &nbsp; </span><span class="Italicized">declarations
-			</p>
-
-			<p class="P74">
-				<span class="T15">&nbsp;  &nbsp; </span><span class="Italicized">statements
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>}
-			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">function</span><span class="Italicized">name</span><span class="Subfigure">(</span><span class="Italicized">input variables <span class="Subfigure">) // returns</span> <span class="Italicized">type</li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">declarations</span></li>
+					<li><span class="Italicized">statements</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
 
 			<p>
 				Function definitions begin with the key word “function” followed by the name of the function that is being defined. A comma separated list of input variables and their types, text or numeric, appear after the function name, enclosed in parentheses. These variables allow the function to receive input from the calling program.
@@ -222,82 +182,30 @@
 			<p>
 				In addition to receiving inputs from the calling program, functions may (or may not) return a result value. The type of this result: numeric, text, or “nothing”; is specified at the end of the first line of the function declaration. If the value returned by the function is a number, the “</span><span class="Subfigure">Numeric</span>” type will be specified. If the value returned by the function is a text string, the “</span><span class="Subfigure">Text</span>” type will be specified. If the function does not return a result, the keyword “</span><span class="Subfigure">nothing</span>” will be used to indicate that fact.
 			</p>
-
-			<p class="Subfigure">
-				&lt;html&gt;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>&lt;body&gt;
-			</p>
-
-			<p class="Subfigure">
-				&lt;pre&gt;
-			</p>
-
-			<div class="P111">
-				&lt;script type="text/javascript"&gt;
-			</div>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> function banner(message /*Text*/) // returns nothing
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span>{
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(“ ”);
-			</p>
-
-			<p class="Subfigure">
-				document.write(“* * * * ”);
-			</p>
-
-			<p class="Subfigure">
-				document.write(message);
-			</p>
-
-			<p class="Subfigure">
-				document.writeln(“* * * * ”);
-			</p>
-
-			<p class="Subfigure">
-				document.writeln(“ ”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span>}
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span>banner(“Hello World!”);
-			</p>
-
-			<p class="Subfigure">
-				&lt;/script&gt;
-			</p>
-
-			<p>
-				&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> &lt;/pre&gt;
-			</p>
-
-			<p class="Subfigure">
-				&lt;/body&gt;
-			</p>
-
-			<p class="Subfigure">
-				&lt;/html&gt;
-			</p>
-
-			<p class="Figure">
-				&nbsp;
-			</p>
+			
+			<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">function banner(message /*Text*/) // returns nothing</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">document.writeln(“ ”);</span></li>
+						<li><span class="Subfigure">document.write(“* * * * ”);</span></li>
+						<li><span class="Subfigure">document.write(message);</span></li>
+						<li><span class="Subfigure">document.writeln(“* * * * ”);</span></li>
+						<li><span class="Subfigure">document.writeln(“ ”);</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">banner(“Hello World!”);</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+			</ul>
 
 			<p class="Figure">
 				Figure 8.26: &nbsp; A program containing a programmer-defined function
@@ -319,8 +227,8 @@
 				Functions are called by referring to them by name in a calling program and supplying any required input values. The general format of a Watson JavaScript function call is:
 			</p>
 
-			<p class="P60">
-				<span class="Italicized">functionName</span><span class="Subfigure">(</span><span class="Italicized">inputs</span><span class="Subfigure">);
+			<p class="Subfigure">
+				<span class="Italicized">functionName</span>(<span class="Italicized">inputs</span>);
 			</p>
 
 			<p>
@@ -457,21 +365,11 @@
 				Figure 8.27: &nbsp; A program to raise an integer value to the third power
 			</p>
 
-			<p class="P46">
-				&nbsp;
-			</p>
-
-			<p class="P46">
-				&nbsp;
-			</p>
 
 			<p>
 				Figure 8.27 contains a program for raising a number to the third power. The program declares three things: an integer variable named “</span><span class="Subfigure">a</span>”, an integer variable named “</span><span class="Subfigure">b</span>”, and a function named <span class="Subfigure">power</span>. The <span class="Subfigure">power</span> function is a general purpose subprogram for raising</span> <span class="Italicized">x</span> to the</span> <span class="Italicized">y</span> power (</span><span class="Italicized">x</span><span class="T53">y</span> ) given values for both</span> <span class="Italicized">x</span> and</span> <span class="Italicized">y</span>. Unlike the <span class="Subfigure">banner</span> function, which did not need to return a value to the calling program, this subprogram must have the ability to report its results back to whomever called it.
 			</p>
 
-			<p class="P46">
-				&nbsp;
-			</p>
 
 			<p>
 				The main program of Figure 8.27 begins by prompting the user to enter a value. The user’s input is then read into the numeric variable “</span><span class="Subfigure">a</span>”. The next statement:
@@ -518,35 +416,19 @@
 			</p>
 
 			<p>
-				&nbsp;
-			</p>
-
-			<p>
 				The final statement in the power function is
 			</p>
 
-			<p>
-				&nbsp;
-			</p>
-
-			<p class="P8">
+			<p class="Subfigure">
 				return(z);
 			</p>
-
-			<p>
-				&nbsp;
-			</p>
-
+			
 			<p>
 				Return statements are used to transfer a value from a function back to the calling program – in this case, the value of <span class="Subfigure">z</span>. The general form of the <span class="Subfigure">Return</span> statement is:
 			</p>
 
-			<p>
-				&nbsp;
-			</p>
-
-			<p class="P60">
-				<span class="Subfigure">return(</span><span class="Italicized">expression</span><span class="Subfigure">);
+			<p class="Subfigure">
+				return(<span class="Italicized">expression</span>);
 			</p>
 
 			<p>
@@ -559,10 +441,6 @@
 
 			<p>
 				When the “return” is executed, three things happen: the function ceases execution, the return value is passed back to the calling program, and the calling program “wakes up” at the point at which the function was called. Thus, when the “return” statement of Figure 8.27 is executed, control returns to the main program and the value of <span class="Subfigure">a</span><span class="T55">3</span> is assigned to “<span class="Subfigure">b</span>”.
-			</p>
-
-			<p class="P46">
-				&nbsp;
 			</p>
 
 			<p>
@@ -712,50 +590,8 @@
 				When a function subprogram is called, the evaluation of the current statement in the calling program is temporarily interrupted. When the function returns, its value is substituted into the current expression at the point of the call, and execution of the interrupted statement resumes. Hence, if <span class="Subfigure">x</span> were 3, <span class="Subfigure">power(x,3)</span> would evaluate to 27 and <span class="Subfigure">power(x,2)</span> would evaluate to 9. Assuming <span class="Subfigure">a</span> was 10, <span class="Subfigure">b</span> was 20, <span class="Subfigure">c</span> was 30, and <span class="Subfigure">d</span> was 40, the above expression would be evaluated in the following way:
 			</p>
 
-			<p class="Subfigure">
-				y = &nbsp; a * power(x,3) + &nbsp; b * power(x,2) + &nbsp; c * x + &nbsp; d;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> 10 * power(3,3) + 20 * power(3,2) + 30 * 3 + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> 10 * &nbsp;  &nbsp; 27 &nbsp;  &nbsp;  &nbsp; + 20 * power(3,2) + 30 * 3 + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> 10 * &nbsp;  &nbsp; 27 &nbsp;  &nbsp;  &nbsp; + 20 * &nbsp;  &nbsp;  9 &nbsp;  &nbsp;  &nbsp; + 30 * 3 + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>270 &nbsp;  &nbsp;  &nbsp;  &nbsp; + 20 * &nbsp;  &nbsp;  9 &nbsp;  &nbsp;  &nbsp; + 30 * 3 + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>270 &nbsp;  &nbsp;  &nbsp;  &nbsp; + &nbsp;  &nbsp;  &nbsp; 180 &nbsp;  &nbsp;  &nbsp;  &nbsp; + 30 * 3 + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>270 &nbsp;  &nbsp;  &nbsp;  &nbsp; + &nbsp;  &nbsp;  &nbsp; 180 &nbsp;  &nbsp;  &nbsp;  &nbsp; + &nbsp;  90 &nbsp;  + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>450 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; + &nbsp;  90 &nbsp;  + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>540 &nbsp;  &nbsp;  &nbsp;  + 40
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> 580
-			</p>
-
-			<p>
-				&nbsp;  &nbsp;  &nbsp;
-			</p>
-
+			<img src="Images/fig8-pre29.png" alt="" class="Image">
+			
 			<p>
 				So the value assigned to the variable <span class="Subfigure">y</span> under these assumptions is 580.
 			</p>
@@ -772,9 +608,6 @@
 				In the main program, <span class="Subfigure">x</span> is used to capture the user’s input and <span class="Subfigure">y</span> is used to hold the result of the computation. In the function, <span class="Subfigure">x</span> is the base of the power and <span class="Subfigure">y</span> is the exponent. It just so happens that due to the way the program is written the <span class="Subfigure">x</span> from the main program and the <span class="Subfigure">x</span> from the subprogram will always have identical values. The <span class="Subfigure">y</span> from the main</span> program and the <span class="Subfigure">y</span> from the subprogram, on the other hand, are used for completely different purposes and are unlikely to hold identical values.
 			</p>
 
-			<p class="P46">
-				&nbsp;
-			</p>
 
 			<p>
 				Let’s conclude this section by revisiting the <span class="Subfigure">beer</span> program of Figure 8.24. Figure 8.29 presents a revised version of this program, incorporating a function called <span class="Subfigure">singsong</span>. The main program now asks the user for the number of bottles, and stores the response in <span class="Subfigure">count</span>. </span><span class="Subfigure">singsong</span> is then called and the value of <span class="Subfigure">count</span> is passed to the input parameter, <span class="Subfigure">beers</span>.
@@ -782,10 +615,6 @@
 
 			<p>
 				<span class="Subfigure">singsong</span> contains a “while” loop that prints the lyrics to each verse of the song. During each verse, one of the <span class="Subfigure">beers</span> is consumed. The loop terminates when the number of <span class="Subfigure">beers</span> is no longer greater than zero.
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
 			</p>
 
 			<p>
@@ -888,73 +717,37 @@
 
 			<ol>
 				<li>
-					<p class="P30" style="margin-left:0cm;">
-						<span class="WW8Num33zfalse" style="display:block;float:left;min-width:0.635cm;">1.</span>Describe in a single English statement what the following function does.&nbsp;
-					</p>
+					Describe in a single English statement what the following function does.
 				</li>
-			</ol>
 
-			<p class="P151">
-				&nbsp;
-			</p>
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">function mystery (n /*Numeric*/) // Returns Numeric</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">var something; // Numeric</span></li>
+						<li><span class="Subfigure">var hmmm; // Numeric</span></li>
+						<br/>
+						<li><span class="Subfigure">something = 1;</span></li>
+						<li><span class="Subfigure">for (hmmm = 1; hmmm &le; n; hmmm++)</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">something = something * 2;</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">return(something);</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+				</ul>
 
-			<p class="Subfigure">
-				<span class="T9">&nbsp;  &nbsp; </span>&nbsp; </span>function mystery (n /*Numeric*/) // Returns Numeric
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> {
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> var something; // Numeric
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> var hmmm; // Numeric
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> something = 1;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> for (hmmm = 1; hmmm &le; n; hmmm++)
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> {
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> something = something * 2;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> }
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> return(something);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> }
-			</p>
-
-			<ol>
 				<li>
-					<p class="P70" style="margin-left:0cm;">
-						<span class="WW8Num33zfalse" style="display:block;float:left;min-width:0.635cm;">2.</span>Rewrite the program of Figure 8.29 so that the function returns a string. The new <span class="Subfigure">singsong</span> function should test <span class="Subfigure">beers</span> to see if it is greater than zero. If so, it should print the lyrics and then return the text string “Later…”. If not, it should return the text string “Sorry…”. Have your main program print out this return value. Hence, if a user enters zero or a negative number in answer to the question “How many bottles?” the response presented will be “Sorry…”. If the user enters a positive number greater than zero, the lyrics of the song will be printed followed by “Later…”.</span> &nbsp;
-					</p>
+					Rewrite the program of Figure 8.29 so that the function returns a string. The new <span class="Subfigure">singsong</span> function should test <span class="Subfigure">beers</span> to see if it is greater than zero. If so, it should print the lyrics and then return the text string “Later…”. If not, it should return the text string “Sorry…”. Have your main program print out this return value. Hence, if a user enters zero or a negative number in answer to the question “How many bottles?” the response presented will be “Sorry…”. If the user enters a positive number greater than zero, the lyrics of the song will be printed followed by “Later…”.
 				</li>
 			</ol>
 
+			<br/>
+			
 			<!-- End main content -->
+			<hr />
 			<p class="Emphasized">
 				<a href="#tippytop">Return to top</a>
 			</p>
@@ -973,12 +766,13 @@
 			<div>
 
 			</div>
-
+			<!--
 			<footer>
 				<p>
 					&copy; Copyright  by Burt
 				</p>
 			</footer>
+			-->
 		</div>
 		<script src="js/acorn.js"></script>
 	    <script src="js/interpreter.js"></script>

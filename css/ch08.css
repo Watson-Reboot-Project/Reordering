@@ -22,7 +22,7 @@ button[type=button] {
 }
 
 .leftcontent {
-    width: 96%;
+    width: 98%;
     float: left;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -37,13 +37,13 @@ button[type=button] {
 }
 
 .txtarea {
-    width: 98.5%;
+    width: 99%;
 	height: 100%;
 	overflow: auto;
 }
 
 .divness {
-	width:95%;
+	width:96%;
 	margin:auto auto;
 	font-family:monospace;
 	overflow: auto;
@@ -76,7 +76,7 @@ button[type=button] {
     padding-bottom: 2px;
 }
 .bottomrightcontent {
-    width: 94%;
+    width: 96%;
     float: left;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -85,7 +85,7 @@ button[type=button] {
 }
 .bottomrighttxtarea {
 	overflow:auto;
-    width: 94%;
+    width: 96%;
 	height: 100px;
     resize: none;
 	border: 1px solid black;

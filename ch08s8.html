@@ -29,7 +29,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.8 RECURSION</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -96,13 +96,33 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%; overflow:none; scroll: none;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08s7.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; right: 1px; left:auto; top:45%; scroll: none;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s9.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
-			<p class="Section">
-				8.8 &nbsp; Recursion
-			</p>
-
 			<p>
 				This section is concerned with the topic of recursion. </span><span class="Bolded">Recursion</span> is a type of repetition that is implemented when a subprogram calls itself. When a recursive call takes place, control is passed to what appears to be a brand new copy of the subprogram – complete with its own set of parameters and local variables. This copy of the subprogram may, in turn, call another copy of the subprogram. That copy may call another copy, and so on and so forth. Eventually, these recursive calls must terminate and return control to the original calling program.
 			</p>
@@ -208,25 +228,19 @@
 				Thus, <span class="Subfigure">singsong</span><span class="T62">1</span> begins with two <span class="Subfigure">beers</span>. It compares its number of <span class="Subfigure">beers</span> to zero. Since two is greater than zero, the computer executes the statements in the “then” block. The first five statements of the block print the following three lines:
 			</p>
 
-			<p class="P124">
-				2 bottles of beer on the wall.
-			</p>
-
-			<p class="P124">
-				2 bottles of beer.
-			</p>
-
-			<p class="P124">
-				Take one down. Pass it around.
-			</p>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">2 bottles of beer on the wall.</span></li>
+				<li><span class="Subfigure">2 bottles of beer.</span></li>
+				<li><span class="Subfigure">Take one down. Pass it around.</span></li>
+			</ul>
 
 			<p>
 				<span class="Subfigure">Singsong</span><span class="T62">1</span> then subtracts one from <span class="Subfigure">beers</span> giving it a value of one. Next, the function prints:
 			</p>
 
-			<p class="P124">
-				1 bottles of beer on the wall.
-			</p>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">1 bottles of beer on the wall.</span></li>
+			</ul>
 
 			<p>
 				followed by a blank line. At this point, <span class="Subfigure">singsong</span><span class="T62">1</span> makes a recursive call to <span class="Subfigure">singsong</span>. In other words, it calls itself. Since this new call is the second call to <span class="Subfigure">singsong</span>, let’s refer to it as <span class="Subfigure">singsong</span><span class="T62">2</span>.
@@ -235,26 +249,20 @@
 			<p>
 				<span class="Subfigure">Singsong</span><span class="T62">2</span> receives “1” for the number of &nbsp; </span><span class="Subfigure">beers</span> from <span class="Subfigure">singsong</span><span class="T62">1</span>. Since one is greater than zero the “then” block is executed, causing the following lines to be printed.
 			</p>
-
-			<p class="P124">
-				1 bottles of beer on the wall.
-			</p>
-
-			<p class="P124">
-				1 bottles of beer.
-			</p>
-
-			<p class="P124">
-				Take one down. Pass it around.
-			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">1 bottles of beer on the wall.</span></li>
+				<li><span class="Subfigure">1 bottles of beer.</span></li>
+				<li><span class="Subfigure">Take one down. Pass it around.</span></li>
+			</ul>
 
 			<p>
 				<span class="Subfigure">Singsong</span><span class="T62">2</span> then subtracts one from its copy of <span class="Subfigure">beers</span> and prints:
 			</p>
-
-			<p class="P124">
-				0 bottles of beer on the wall.
-			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">0 bottles of beer on the wall.</span></li>
+			</ul>
 
 			<p>
 				followed by a blank line. Next, <span class="Subfigure">singsong</span><span class="T62">2</span> encounters the recursive call and invokes a third copy of <span class="Subfigure">singsong</span>, which we will refer to as <span class="Subfigure">singsong</span><span class="T62">3</span>.
@@ -272,88 +280,10 @@
 				It returns to its caller, <span class="Subfigure">singsong</span><span class="T62">2</span>.
 			</p>
 
-			<h6 class="P145">&nbsp;  &nbsp;  &nbsp; </span> Main &nbsp;  &nbsp;  &nbsp;  &nbsp;  singsong <span class="T61">1</span> &nbsp;  &nbsp;  singsong <span class="T61">2</span> &nbsp;  &nbsp;  &nbsp; singsong <span class="T61">3</span></h6>
-
-			<div class="P41">
-				<p>
-					&nbsp;
-				</p>
-			</div>
-
-			<div class="P37">
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</div>
-
-			<div class="P37">
-				<p>
-					&nbsp;
-				</p>
-				&nbsp;  &nbsp; </span> ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</div>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p>
-				<span class="T15">&nbsp;  &nbsp;  &nbsp; </span><span class="T24">singsong(); <span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp; ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<div class="P37">
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-				&nbsp;  &nbsp; </span> ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</div>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</p>
-
-			<p>
-				<span class="T15">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> <span class="T24">singsong();</span><span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> <span class="T24">singsong(); <span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp; ------
-			</p>
-
-			<div class="P37">
-				<p>
-					&nbsp;
-				</p>
-
-				<p>
-					&nbsp;
-				</p>
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------ &nbsp;  &nbsp;  &nbsp;  &nbsp;  ------
-			</div>
-
-			<p class="P60">
-				Figure 8.31: &nbsp; Illustration of the behavior of the recursive “beer” program, given 2 <span class="Subfigure">beers
+			<img src="Images/fig8-31.png" alt="Illustration of the behavior of the recursive “beer” program, given 2 beers" class="Image">
+			
+			<p class="Figure">
+				Figure 8.31: &nbsp; Illustration of the behavior of the recursive “beer” program, given 2 <span class="Subfigure">beers</span>
 			</p>
 
 			<p>
@@ -376,230 +306,20 @@
 				The major differences between the revised program and the previous version are:
 			</p>
 
-			<ol>
-				<li>
-					<p class="P31" style="margin-left:0cm;">
-						<span class="WW8Num11zfalse" style="display:block;float:left;min-width:0.6881cm;">(1)</span>The “if” has been replaced by an “if-else”.&nbsp;
-					</p>
-				</li>
-			</ol>
-
-			<ol>
-				<li>
-					<p class="P71" style="margin-left:0cm;">
-						<span class="WW8Num11zfalse" style="display:block;float:left;min-width:0.6881cm;">(2)</span>The statement <span class="Subfigure">document.writeln(“Hic.”);</span> &nbsp; has been added to the “then” block following the recursive call, and</span> &nbsp;
-					</p>
-				</li>
-			</ol>
-
-			<ol>
-				<li>
-					<p class="P71" style="margin-left:0cm;">
-						<span class="WW8Num11zfalse" style="display:block;float:left;min-width:0.6881cm;">(3)</span>The “else” block holds the statement:</span> <span class="T21">document.writeln(“We’re out of beer.”);</span>&nbsp;
-					</p>
-				</li>
-			</ol>
-			<!-- Manual fig 8.32
-			<p class="Bolded">
-				Program definition:
+			
+			<p>
+				(1) &nbsp; The “if” has been replaced by an “if-else”.
 			</p>
-
-			<p class="Footnote">
-				&nbsp;
+			
+			<p>
+				(2) &nbsp; The statement <span class="Subfigure">document.writeln(“Hic.”); has been added to the “then” block following the recursive call, and
 			</p>
-
-			<p class="Subfigure">
-				var count; // Numeric
+			
+			<p>
+				(3) &nbsp; The “else” block holds the statement: <span class="Subfigure">document.writeln(“We’re out of beer.”);</span>
 			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>function singsong (beers /*Numeric*/) // Returns nothing
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>{
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> if (beers &gt; 0)
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span> {
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.write(beers);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“ bottles of beer on the wall,”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp; </span>document.write(beers);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“ bottles of beer.”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“Take one down. Pass it around.”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  beers = beers – 1;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; &nbsp;  &nbsp;  document.write(beers);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“ bottles of beer on the wall.”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“ ”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  singsong(beers);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“Hic. ”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; }
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; else
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; {
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  document.writeln(“We’re out of beer.”);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; }
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>}
-			</p>
-
-			<p class="P109">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>count = parseFloat(prompt(“How many bottles?”,0));
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>singsong(count);
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; </span>document.writeln(“Later...”);
-			</p>
-
-			<p class="P72">
-				&nbsp;
-			</p>
-
-			<p class="P68">
-				&nbsp;
-			</p>
-
-			<p class="Bolded">
-				Program input/output behavior:
-			</p>
-
-			<p class="Footnote">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				[Main] &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">How many bottles?</span>
-			</p>
-
-			<p class="Subfigure">
-				[Main] &nbsp;  &nbsp;  &nbsp; <span class="T32">2</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp; <span class="Subfigure">2 bottles of beer on the wall.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp; <span class="Subfigure">2 bottles of beer.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp; <span class="Subfigure">Take one down. Pass it around.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp; <span class="Subfigure">1 bottles of beer on the wall.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp; <span class="Subfigure">1 bottles of beer on the wall.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp; <span class="Subfigure">1 bottles of beer.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp; <span class="Subfigure">Take one down. Pass it around.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp; <span class="Subfigure">0 bottles of beer on the wall.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">3</span>]&nbsp; <span class="Subfigure">We’re out of beer.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">2</span>]&nbsp; <span class="Subfigure">Hic.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Singsong <span class="T61">1</span>]&nbsp; <span class="Subfigure">Hic.</span>
-			</p>
-
-			<p class="Subfigure">
-				[Main] &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">Later...</span>
-			</p>
-
-			<p class="P81">
-				&nbsp;
-			</p>
-
-			<p class="P82">
-				&nbsp;
-			</p>
-			-->
+			
+			
 			<div id="fig32Div"></div>
 			<p class="Figure">
 				Figure 8.32: &nbsp; Beer – the general recursive version
@@ -625,306 +345,95 @@
 				The reasons for supporting both recursion and iteration are the same as those for supporting two types of selection statements ( “if” and “if-else”) as well as two types of iteration constructs (“for” and “while”): clarity and convenience. Some problems are simply easier to solve using recursion than iteration. For these types of problems, a recursive solution is often more compact and easier to read than an iterative one.
 			</p>
 
-			<div>
-				An example of a common mathematical function that lends itself to a recursive solution is “factorial”. The factorial function frequently shows up in engineering, science, and statistics formulas. Factorial takes as input a non-negative integer (zero or greater) and produces a positive integer (one or greater). Mathematicians use the symbol “!” for factorial.</span> <span class="Footnote_20_Symbol"><span class="Footnote_20_anchor" title="Footnote: I’ll never forget the first time I ran across the “!” notation and thought to myself: “Boy, the guy who wrote this math text is really getting excited…”"><a href="#ftn7" id="body_ftn7">7</a></span></span></span> &nbsp; The symbol appears immediately following the integer constant or variable representing input to the function (e.g., &nbsp; 3! or N!).</span>
-			</div>
+			<p>
+				An example of a common mathematical function that lends itself to a recursive solution is “factorial”. The factorial function frequently shows up in engineering, science, and statistics formulas. Factorial takes as input a non-negative integer (zero or greater) and produces a positive integer (one or greater). Mathematicians use the symbol “!” for factorial.<span class="Footnote"><span class="Footnote" title="Footnote: I’ll never forget the first time I ran across the “!” notation and thought to myself: “Boy, the guy who wrote this math text is really getting excited…”"><a href="#ftn7" id="body_ftn7">7</a></span></span> &nbsp; The symbol appears immediately following the integer constant or variable representing input to the function (e.g., &nbsp; 3! or N!).
+			</p>
 
 			<p>
 				Factorial is defined recursively as:
-			</p><!--Next 'div' was a 'text:p'.-->
-
-			<div class="P20">
-				<!--Next '
-				span' is a draw:frame.
-				-->
-				<span class="fr3" id="Object1" style="height:0.3835in;width:1.2571in; padding:0;"> 0 ! = 1 N ! = N ⋅ ( N − 1 ) ! <img alt="" src="data:image/*;base64,AQAJAAADKgEAAAIAFQAAAAAABQAAAAkCAAAAAAQAAAACAQEABQAAAAEC////AAQAAAAuARgABQAAADECAQAAAAUAAAALAgAAAAAFAAAADAJABOAJEgAAACYGDwAaAP////8AABAAAADA////zP///6AJAAAMBAAACwAAACYGDwAMAE1hdGhUeXBlAADgABUAAAD7AoD+AAAAAAAAkAEAAAAABAIAEFRpbWVzIE5ldyBSb21hbgCsLQQAAAAtAQAACAAAADIKmgPOCAIAAAApIQgAAAAyCpoDLAgBAAAAMQAIAAAAMgqaAyYFAQAAACgACAAAADIKmgNaAQEAAAAhAAgAAAAyCloBbgIBAAAAMQAIAAAAMgpaAdYAAQAAACEACAAAADIKWgE0AAEAAAAwABAAAAD7AoD+AAAAAAAAkAEAAAACAAIAEFN5bWJvbAAABAAAAC0BAQAEAAAA8AEAAAgAAAAyCpoDNgcBAAAALQAIAAAAMgqaA5AEAQAAANcACAAAADIKmgPkAQEAAAA9AAgAAAAyCloBYAEBAAAAPQAVAAAA+wKA/gAAAAAAAJABAQAAAAQCABBUaW1lcyBOZXcgUm9tYW4ArC0EAAAALQEAAAQAAADwAQEACAAAADIKmgPCBQEAAABOAAgAAAAyCpoDLgMBAAAATgAIAAAAMgqaA0wAAQAAAE4ACgAAACYGDwAKAP////8BAAAAAAAQAAAA+wIQAAcAAAAAALwCAAAAAAECAiJTeXN0ZW0AbgQAAAAtAQEABAAAAPABAAADAAAAAAA=" style="height:0.9741cm;width:3.193cm;"/></span>
-			</div>
-
-			<div style="clear:both; line-height:0; width:0; height:0; margin:0; padding:0;">
-				&nbsp;
-			</div>
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"> 0 ! = 1</span></li>
+				<li><span class="Subfigure">N ! = N ⋅ ( N − 1 ) !</span></li>
+			</ul>
 
 			<p>
-				Using the above definition, we see that 0! is explicitly defined to equal one. The factorial of all other non-negative integers,</span> <span class="Italicized">N</span>, is defined as</span> <span class="Italicized">N</span> times the factorial of the integer one less than</span> <span class="Italicized">N</span>. Thus,
+				Using the above definition, we see that 0! is explicitly defined to equal one. The factorial of all other non-negative integers, <span class="Italicized">N</span>, is defined as <span class="Italicized">N</span> times the factorial of the integer one less than <span class="Italicized">N</span>. Thus,
 			</p>
 
-			<p class="P60">
-				1! &nbsp; = &nbsp; 1</span> <span class="T59"></span> 0!
+			<p class="Subfigure">
+				1! &nbsp; = &nbsp; 1  0!
 			</p>
 
 			<p>
 				and, since 0! = 1,
 			</p>
 
-			<p class="P83">
-				&nbsp;  &nbsp; 1! &nbsp; = &nbsp; 1</span> <span class="T59"></span> 0! &nbsp; = &nbsp; 1</span> <span class="T59"></span> 1 &nbsp; = &nbsp; 1
+			<p class="Subfigure">
+				1! &nbsp; = &nbsp; 1 X 0! &nbsp; = &nbsp; 1 X 1 &nbsp; = &nbsp; 1
 			</p>
 
 			<p>
 				Likewise, the value of 2! is:
 			</p>
 
-			<p class="P60">
-				2! &nbsp; = &nbsp; 2</span> <span class="T59"></span> 1! &nbsp; = &nbsp; 2</span> <span class="T59"></span> 1 &nbsp; = &nbsp; 2
+			<p class="Subfigure">
+				2! &nbsp; = &nbsp; 2 X 1! &nbsp; = &nbsp; 2 X 1 &nbsp; = &nbsp; 2
 			</p>
 
 			<p>
 				3! is
 			</p>
 
-			<p class="P60">
-				3! &nbsp; = &nbsp; 3</span> <span class="T59"></span> 2! &nbsp; = &nbsp; 3</span> <span class="T59"></span> 2 &nbsp; = &nbsp; 6
+			<p class="Subfigure">
+				3! &nbsp; = &nbsp; 3 X 2! &nbsp; = &nbsp; 3 X 2 &nbsp; = &nbsp; 6
 			</p>
 
 			<p>
 				and 4! is
 			</p>
 
-			<p class="P60">
-				&nbsp;  &nbsp; 4! &nbsp; = &nbsp; 4</span> <span class="T59"></span> 3! &nbsp; = &nbsp; 4</span> <span class="T59"></span> 6 &nbsp; = &nbsp; 24
+			<p class="Subfigure">
+				4! &nbsp; = &nbsp; 4 X 3! &nbsp; = &nbsp; 4 X 6 &nbsp; = &nbsp; 24
 			</p>
 
 			<p>
-				Figure 8.33 illustrates a Watson JavaScript function for computing factorial. The contents of the subprogram read “If</span> <span class="Italicized">N</span> is equal to zero then the result is one, otherwise the result is</span> <span class="Italicized">N</span><span class="T59"></span> (</span><span class="Italicized">N</span>-1)!. Return the result.” &nbsp; The JavaScript function clearly reflects the mathematical definition. The factorial function could be rewritten using iteration, rather</span> than recursion, but such a subprogram would not follow the mathematical definition of factorial as closely as the recursive version. Thus, the recursive version is preferred.
+				Figure 8.33 illustrates a Watson JavaScript function for computing factorial. The contents of the subprogram read “If</span> <span class="Italicized">N</span> is equal to zero then the result is one, otherwise the result is</span> <span class="Italicized">N</span> (</span><span class="Italicized">N</span>-1)!. Return the result.” &nbsp; The JavaScript function clearly reflects the mathematical definition. The factorial function could be rewritten using iteration, rather</span> than recursion, but such a subprogram would not follow the mathematical definition of factorial as closely as the recursive version. Thus, the recursive version is preferred.
 			</p>
-
-			<p class="P125">
-				&nbsp; </span>function fact (n /*Numeric*/) // Returns Numeric
-			</p>
-
-			<p class="P107">
-				&nbsp;  &nbsp; </span> {
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>var result; // Numeric
-			</p>
-
-			<p class="P126">
-				&nbsp;
-			</p>
-
-			<p class="P127">
-				&nbsp;  if (n == 0)
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>{
-			</p>
-
-			<p class="P126">
-				&nbsp;  &nbsp; </span> result = 1;
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>}
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>else
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>{
-			</p>
-
-			<p class="P126">
-				&nbsp;  &nbsp; </span> result = n * fact(n-1);
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>}
-			</p>
-
-			<p class="P126">
-				&nbsp; </span>return(result);
-			</p>
-
-			<p class="P107">
-				&nbsp;  &nbsp; </span> }
-			</p>
-
-			<p class="Figure">
-				&nbsp;
-			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">function fact (n /*Numeric*/) // Returns Numeric</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">var result; // Numeric</span></li>
+					<br/>
+					<li><span class="Subfigure">if (n == 0)</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">result = 1;</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">else</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">result = n * fact(n-1);</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">return(result);</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
 
 			<p class="Figure">
 				Figure 8.33: &nbsp; A recursive function to compute N!
 			</p>
-
-			<h5 class="P139">n = 3</h5>
-
+			
 			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">fact</span><span class="T62">1
-			</p>
-
-			<p class="P53">
 				&nbsp;
 			</p>
 
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span>. . .
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp; </span>result = 3 * fact(2);
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> 3 * &nbsp;  2 &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> 6 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span>. . .  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">6</span><span class="T24">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Subfigure">n = 2
-			</p>
-
-			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="T15">&nbsp; </span><span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">fact</span><span class="T62">2</span><span class="T24">&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> . . .
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> result = 2 * fact(1); &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>2 * &nbsp;  1 &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>2 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> . . .  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P49">
-				&nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p>
-				<span class="T24">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">2&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; n = 1
-			</p>
-
-			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">fact</span><span class="T62">3</span><span class="T24">&nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> . . .
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> result = 1 * fact(0);
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>1 * &nbsp;  1 &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>1 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> . . .  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p>
-				<span class="T24">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">1&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; n = 0
-			</p>
-
-			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="T15">&nbsp; </span><span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">fact</span><span class="T62">4</span><span class="T24">&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>. . .
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> result = 1;
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P53">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>. . .
-			</p>
-
-			<p class="P53">
-				&nbsp;
-			</p>
-
-			<p class="P56">
-				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-			</p>
-
-			<p>
-				<span class="T26">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Subfigure">1
-			</p>
+			<img src="Images/fig8-34.png" alt="" class="Image">
 
 			<p class="Figure">
 				Figure 8.34: &nbsp; A graphical illustration of the computation of 3!
@@ -944,128 +453,55 @@
 						Show exactly what will be output by the following program, assuming the user enters a value of 3 at the prompt.&nbsp;
 					</p>
 				</li>
-
-				<p class="Subfigure">
-					&nbsp; </span> var a; // Numeric
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> function dub ( x /*Numeric*/ ) // Returns nothing
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> if (x &gt; 1)
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp; {
-				</p>
-
-				<p class="Subfigure">
-					document.writeln("Rub a dub dub,");
-				</p>
-
-				<p class="Subfigure">
-					document.write(x);
-				</p>
-
-				<p class="Subfigure">
-					document.writeln(" men in a tub.");
-				</p>
-
-				<p class="Subfigure">
-					dub(x-1);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; &nbsp; }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; </span>a = parseFloat(prompt(“Yo, dude! &nbsp; Numberage.",0));
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> dub(a);
-				</p>
+				
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">var a; // Numeric</span></li>
+					<br/>
+					<li><span class="Subfigure">function dub ( x /*Numeric*/ ) // Returns nothing</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">if (x &gt; 1)</span></li>
+						<li><span class="Subfigure"></span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">document.writeln("Rub a dub dub,");</span></li>
+								<li><span class="Subfigure">document.write(x);</span></li>
+								<li><span class="Subfigure">document.writeln(" men in a tub.");</span></li>
+								<li><span class="Subfigure">dub(x-1);</span></li>
+							</ul>
+						<li><span class="Subfigure">}</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<br/>
+					<li><span class="Subfigure">a = parseFloat(prompt(“Yo, dude! &nbsp; Numberage.",0));</span></li>
+					<li><span class="Subfigure">dub(a);</span></li>
+				</ul>
 
 				<li>
 					<p>
 						Show exactly what would be output by the following program.&nbsp;
 					</p>
 				</li>
-
-				<p class="Subfigure">
-					&nbsp; </span> function goForIt (i /*Numeric*/ ) // Returns nothing
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> i = i - 1;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> document.writeln(i);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> if (i &gt; 0)
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp; </span> goForIt(i);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp; </span> document.writeln(i);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> document.writeln("This program does nothing");
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> goForIt(4);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp; </span> document.writeln("useful.");
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;
-				</p>
+				
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">function goForIt (i /*Numeric*/ ) // Returns nothing</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">i = i - 1;</span></li>
+						<li><span class="Subfigure">document.writeln(i);</span></li>
+						<li><span class="Subfigure">if (i &gt; 0)</span></li>
+						<li><span class="Subfigure">{</span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">goForIt(i);</span></li>
+							</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">document.writeln(i);</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<br/>
+					<li><span class="Subfigure">document.writeln("This program does nothing");</span></li>
+					<li><span class="Subfigure">goForIt(4);</span></li>
+					<li><span class="Subfigure">document.writeln("useful.");</span></li>
+				</ul>
 
 				<li>
 					<p>
@@ -1073,7 +509,16 @@
 					</p>
 				</li>
 			</ol>
+			
+			<br/>
+			<p class="Section">
+				Footnotes
+			</p>
+			<p class="Footnote">
+				<a href="#body_ftn7" id="ftn7">7</a>&nbsp; I’ll never forget the first time I ran across the “!” notation and thought to myself: &nbsp; “Boy, the guy who wrote this math text is really getting excited…”
+			</p>
 			<!-- End main content -->
+			<hr />
 			<p class="Emphasized">
 				<a href="#tippytop">Return to top</a>
 			</p>
@@ -1092,12 +537,13 @@
 			<div>
 
 			</div>
-
+			<!--
 			<footer>
 				<p>
 					&copy; Copyright  by Burt
 				</p>
 			</footer>
+			-->
 		</div>
 		<script src="js/acorn.js"></script>
 	    <script src="js/interpreter.js"></script>

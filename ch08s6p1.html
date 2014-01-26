@@ -28,7 +28,7 @@
 			<!-- Header division -->
 
 			<div id="header">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.6.1 SEQUENCE</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -95,13 +95,33 @@
 				</table>
 
 			</div>
+			<!--Floating nav -->
+				<!-- Previous -->
+				<style>
+				div.floating-previous
+				{position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%; opacity:0.5;}
+				div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-previous">
+				<a href="ch08s6.html">
+				<img style="border:0;" src="Images/left-arrow.png" alt="Previous page" width="40">
+				</a>
+				</div>
+				<!-- Next -->
+				<style>
+				div.floating-next
+				{position:fixed;z-index:200; left: auto; right:1px; top:45%; opacity:0.5;}
+				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+				</style>
+				<div class="floating-next">
+				<a href="ch08s6p2.html">
+				<img style="border:0;" src="Images/right-arrow.png" alt="Next page" width="40">
+				</a>
+				</div>
+			<!-- End floating nav -->
 			<!-- End nav -->
 
 			<!-- Main content -->
-			<p class="Subsection">
-				8.6.1 &nbsp; Sequence
-			</p>
-
 			<p>
 				The idea of sequence is illustrated graphically in Figure 8.9. This figure shows the order in which the statements of the program of Figure 8.6 would be executed.
 			</p>
@@ -167,13 +187,16 @@
 			</p>
 		-->
 		
-		<div id="fig10Div"></div>
+			<!-- Figure 8.10 interactive -->
+			<div id="fig10Div"></div>
+			<!-- End figure 8.10 interactive -->
+			
 			<p class="Figure">
 				Figure 8.10: &nbsp; A program and variable trace designed to illustrate the concept of sequence
 			</p>
 
 			<p>
-				While it is often possible to gain a superficial knowledge of a program simply by reading it, this approach will not give you the kind of detailed understanding that is frequently required to accurately predict a program’s output. Being able to carefully trace through a program to determine exactly what it does is an important skill. Failure to carefully follow the sequence of instructions often leads to confusion when trying to understand the behavior of a program.<span class="Footnote_20_Symbol"><span class="Footnote_20_anchor" title="Footnote: And incorrect answers on exams, I might add."><a href="#ftn4" id="body_ftn4">4</a></span></span>
+				While it is often possible to gain a superficial knowledge of a program simply by reading it, this approach will not give you the kind of detailed understanding that is frequently required to accurately predict a program’s output. Being able to carefully trace through a program to determine exactly what it does is an important skill. Failure to carefully follow the sequence of instructions often leads to confusion when trying to understand the behavior of a program.<span class="Footnote"><span class="Footnote" title="Footnote: And incorrect answers on exams, I might add."><a href="#ftn4" id="body_ftn4">4</a></span></span>
 			</p>
 
 			<p>
@@ -288,90 +311,67 @@
 				Exercises for Section 8.6.1
 			</p>
 
-			<ol>
-				<li>
-					<p class="P26" style="margin-left:0cm;">
-						<span class="WW8Num36zfalse" style="display:block;float:left;min-width:0.635cm;">1.</span>What would be printed by the following Watson JavaScript program?&nbsp;
-					</p>
+			<p>
+				1. What would be printed by the following Watson JavaScript program?&nbsp;
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">
+					var fiveSix; // Numeric
 				</li>
-			</ol>
 
-			<p class="Subfigure">
-				&nbsp; var fiveSix; // Numeric
+				<li><span class="Subfigure">
+					var pickUpSticks; // Numeric
+				</li>
+
+				<li><span class="Subfigure">
+					&nbsp;
+				</li>
+
+				<li><span class="Subfigure">
+					fiveSix = 56 - 37;
+				</li>
+
+				<li><span class="Subfigure">
+					pickUpSticks = " buckle my shoe.";
+				</li>
+
+				<li><span class="Subfigure">
+					document.write ( 100 - 99 );
+				</li>
+
+				<li><span class="Subfigure">
+					document.write ( " " );
+				</li>
+
+				<li><span class="Subfigure">
+					fiveSix = fiveSix - 17;
+				</li>
+
+				<li><span class="Subfigure">
+					document.write( fiveSix );
+				</li>
+
+				<li><span class="Subfigure">
+					document.write( " " );
+				</li>
+
+				<li><span class="Subfigure">
+					document.writeln( pickUpSticks );
+				</li>
+
+			</ul>
+			
+			<p class="Section">
+				Footnotes
 			</p>
 
-			<p class="Subfigure">
-				&nbsp; var pickUpSticks; // Numeric
+			<p class="Footnote">
+				<a href="#body_ftn4" id="ftn4">4</a>&nbsp; And incorrect answers on exams, I might add.
 			</p>
 
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; fiveSix = 56 - 37;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; pickUpSticks = " buckle my shoe.";
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; document.write ( 100 - 99 );
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; document.write ( " " );
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; fiveSix = fiveSix - 17;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; document.write( fiveSix );
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; document.write( " " );
-			</p>
-
-			<p class="Subfigure">
-				&nbsp; document.writeln( pickUpSticks );
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
 			<!-- End main content -->
+			<hr />
 			<p class="Emphasized">
 				<a href="#tippytop">Return to top</a>
 			</p>
@@ -390,12 +390,13 @@
 			<div>
 
 			</div>
-
+			<!--
 			<footer>
 				<p>
 					&copy; Copyright  by Burt
 				</p>
 			</footer>
+			-->
 		</div>
 		<script src="js/acorn.js"></script>
 	    <script src="js/interpreter.js"></script>

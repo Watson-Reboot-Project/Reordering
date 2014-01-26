@@ -29,7 +29,7 @@
 			<!-- Header division -->
 
 			<div id="header" style="scroll:none; width:100%">
-				<a href="index.html"><h3 style="margin:0; color: white;">WATSON HOME</h3></a>
+				<a href="index.html"><h3 style="margin:0; color: white;">8.6.3 REPETITION</h3></a>
 			</div>
 			<!-- End header -->
 
@@ -112,7 +112,7 @@
 				<!-- Next -->
 				<style>
 				div.floating-next
-				{position:fixed;z-index:200; left: 1px; right:auto; top:45%; scroll: none;}
+				{position:fixed;z-index:200; right: 1px; left:auto; top:45%; scroll: none;}
 				div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
 				</style>
 				<div class="floating-next">
@@ -122,10 +122,6 @@
 				</div>
 			<!-- End floating nav -->
 			<!-- Main content -->
-			<p>
-				8.6.3 &nbsp; Repetition
-			</p>
-
 			<p>
 				Repetition is the name given to the class of control constructs that allow computer programs to repeat a task over and over. You should already have some familiarity with this concept from your study of the Watson Graphics Language (WGL), since WGL includes a repetition construct of the form:
 			</p>
@@ -298,7 +294,7 @@
 			-->
 			<div id="fig18Div"></div>
 			<p class="Figure">
-				Figure 8.18: &nbsp; A program to compute the sum of an arbitrary number of non-negative numbers using a “While” loop
+				Figure 8.18: A program to compute the sum of an arbitrary number of non-negative numbers using a “While” loop
 			</p>
 
 			<p>
@@ -498,26 +494,34 @@
 				The general format of the “for” loop is:
 			</p>
 
-			<p class="Footnote">
+			<p>
 				&nbsp;
 			</p>
 
+			<ul class="Blockcenter">
+				<li>
+					<span class="Subfigure">for (</span><span class="Italicized">variable</span><span class="Subfigure"> = </span><span class="Italicized">initialValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator</span><span class="Italicized">finalValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">&nbsp; variable</span><span class="Subfigure">++</span><span class="Subfigure">)</span>
+				</li>
+			
+				<li>
+					<span class="Subfigure">{</span>
+				</li>
+				
+				<ul class="Subblockcenter">
+					<li>
+						<span class="Italicized">statements</span>
+					</li>
+				</ul>
+				
+				<li>
+					<span class="Subfigure">}</span>
+				</li>
+			</ul>
+			
 			<p>
-				&nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">for (</span><span class="Italicized">variable</span><span class="Subfigure">=</span><span class="Italicized">initialValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator</span><span class="Italicized">finalValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">&nbsp; variable</span><span class="Subfigure">++</span><span class="Subfigure">)</span>
+				&nbsp;
 			</p>
-
-			<p>
-				&nbsp;  &nbsp;  &nbsp; <span class="Subfigure">{</span>
-			</p>
-
-			<p>
-				<span class="T3">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">statements&nbsp;  &nbsp;  &nbsp;  &nbsp;</span>
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  }
-			</p>
-
+				
 			<p>
 				“For” loops work in the following way. First a numeric “loop variable”, indicated above by <span class="Italicized">variable</span>, is initialized to the value of <span class="Italicized">initialValue</span>. The value of the loop variable is then compared to the value of <span class="Italicized">finalValue</span> using the <span class="Italicized">relationalOperator</span>. If the expression <span class="Italicized">variable relationalOperator finalValue</span> is true, the <span class="Italicized">statements</span> of the loop are executed. However, if the result of the expression is false, program control immediately moves to the first statement following the loop’s closing bracket, “}”skipping over the <span class="Italicized">statements</span> in this case. Assuming the expression is true, after executing the <span class="Italicized">statements</span>, the loop variable will be automatically incremented by one and control will return to the top of the loop where the value of the loop variable will once again be compared to the value of <span class="Italicized">finalValue</span>.
 			</p>
@@ -1422,237 +1426,92 @@
 				An interesting feature of the program is that it decrements <span class="Subfigure">count</span> in the middle of the loop, rather than at the end. You should trace through the program with a few bottles to convince yourself that it does work properly. One thing you will probably notice as you do so is that when the program gets down to one beer it reports that as “1 bottles of beer on the wall.” &nbsp; While this lack of grammatical correctness might not seem like such a big deal, especially after 98 beers, I’ll ask you to correct it in the exercises.
 			</p>
 
-			<h1 class="Section">Exercises for Section 8.6.3</h1>
+			<p class="Section">Exercises for Section 8.6.3</p>
 
 			<ol>
 				<li>
-					<p class="P69" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">1.</span>Show exactly what would be output by the following program assuming that the value entered by the user for <span class="Subfigure">i</span> is: (a) &nbsp; 2, &nbsp;  (b) 5, &nbsp;  (c) 7.&nbsp;
-					</p>
+					Show exactly what would be output by the following program assuming that the value entered by the user for <span class="Subfigure">i</span> is: (a) &nbsp; 2, &nbsp;  (b) 5, &nbsp;  (c) 7.&nbsp;
 				</li>
 				<ul class="Blockcenter">
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
+					<li><span class="Subfigure">var i; // Numeric</span></li>
+					<li><span class="Subfigure">var j; // Numeric</span></li>
+					<li><span class="Subfigure">var x; // Numeric</span></li>
 					<br />
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
+					<li><span class="Subfigure">i = parseFloat(prompt(“Enter an integer value. ”,0));</span></li>
+					<li><span class="Subfigure">document.write( “Man, this question ”);</span></li>
+					<li><span class="Subfigure">if (i &lt; 5)</span></li>
+					<li><span class="Subfigure">{</span></li>
 					<ul class="Subblockcenter">
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
+						<li><span class="Subfigure">x = 5 - i;</span></li>
+						<li><span class="Subfigure">for (j = 1; j &le; x; j++)</span></li>
+						<li><span class="Subfigure">{</span></li>
 						<ul class="Subblockcenter">
-							<li class="Subfigure"></li>
+							<li><span class="Subfigure">document.write(“really ”);</span></li>
 						</ul>
-						<li class="Subfigure"></li>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">document.writeln(“sucks!”);</span></li>
 					</ul>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">else</span></li>
+					<li><span class="Subfigure">{</span></li>
 					<ul class="Subblockcenter">
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
+						<li><span class="Subfigure">document.write(“is ”);</span></li>
+						<li><span class="Subfigure"> x = i - 5;</span></li>
+						<li><span class="Subfigure">for (j = 1; j &le; x; j++)</span></li>
+						<li><span class="Subfigure">{</span></li>
 						<ul class="Subblockcenter">
-							<li class="Subfigure"></li>
+							<li><span class="Subfigure">document.write(“way ”);</span></li>
 						</ul>
-						<li class="Subfigure"></li>
-						<li class="Subfigure"></li>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">document.writeln(“cool!”);</span></li>
 					</ul>
-					<li class="Subfigure"></li>
-					<li class="Subfigure"></li>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">document.writeln(“Peace.”);</span></li>
 				</ul>
 
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					<span class="T60">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>var i; // Numeric
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; var j; // Numeric
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; var x; // Numeric
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; i = parseFloat(prompt(“Enter an integer value. ”,0));
-				</p>
-
-				<p class="Subfigure">
-					<span style="position:absolute;left:4.604cm;">document.write( “Man, this question ”);</span>
-				</p>
-
-				<p class="Subfigure">
-					<span style="position:absolute;left:4.604cm;">if (i &lt; 5)</span>
-				</p>
-
-				<p class="Subfigure">
-					<span style="position:absolute;left:4.604cm;">{</span>
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  x = 5 - i;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  for (j = 1; j &le; x; j++)
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  document.write(“really ”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; document.writeln(“sucks!”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; else
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp; {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  document.write(“is ”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  x = i - 5;
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; for (j = 1; j &le; x; j++)
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  {
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  document.write(“way ”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  &nbsp;  document.writeln(“cool!”);
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  }
-				</p>
-
-				<p class="Subfigure">
-					&nbsp;  document.writeln(“Peace.”);
-				</p>
-
+				<br/>
+				
 				<li>
-					<p class="P29" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">2.</span>Modify the program of Figure 8.18 so that both negative and positive numbers can be added together. In order to do so and still have a way to exit the loop, use 0 as the exit sentinel.&nbsp;
-					</p>
+					Modify the program of Figure 8.18 so that both negative and positive numbers can be added together. In order to do so and still have a way to exit the loop, use 0 as the exit sentinel.
 				</li>
-
+				<br/>
 				<li>
-					<p class="P29" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">3.</span>Rewrite the program of Figure 8.22 so that it uses a “while” loop to read in grades until a negative grade is entered, instead of using a “for” loop that requires the user to enter the number of grades in advance.&nbsp;
-					</p>
+					Rewrite the program of Figure 8.22 so that it uses a “while” loop to read in grades until a negative grade is entered, instead of using a “for” loop that requires the user to enter the number of grades in advance.
 				</li>
-
+				<br/>
 				<li>
-					<p class="P29" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">4.</span>Modify the program of Figure 8.24 so that it correctly handles one bottle of beer. In other words, it should say “1 bottle of beer on the wall.” Instead of “1 bottles of beer…”&nbsp;
-					</p>
+					Modify the program of Figure 8.24 so that it correctly handles one bottle of beer. In other words, it should say “1 bottle of beer on the wall.” Instead of “1 bottles of beer…”
 				</li>
-
+				<br/>
 				<li>
-					<p class="P29" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">5.</span>Rewrite the program of Figure 8.24 so that it uses a “For” loop instead of “While” loop. Note that “For” loops count “up” while the song counts “down”.&nbsp;
-					</p>
+					Rewrite the program of Figure 8.24 so that it uses a “For” loop instead of “While” loop. Note that “For” loops count “up” while the song counts “down”.
 				</li>
-
+				<br/>
 				<li>
-					<p class="P29" style="margin-left:0cm;">
-						<span class="WW8Num27zfalse" style="display:block;float:left;min-width:0.635cm;">6.</span>Explain in a single easy-to-understand English sentence exactly what the following program does.&nbsp;
-					</p>
+					Explain in a single easy-to-understand English sentence exactly what the following program does.
 				</li>
 			</ol>
 
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				var i; // Numeric
-			</p>
-
-			<p class="Subfigure">
-				var n; // Numeric
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;
-			</p>
-
-			<p class="Subfigure">
-				i = 1;
-			</p>
-
-			<p class="Subfigure">
-				n = 0;
-			</p>
-
-			<p class="Subfigure">
-				while (i &le; 5)
-			</p>
-
-			<p class="Subfigure">
-				{
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  n = n + i;
-			</p>
-
-			<p class="Subfigure">
-				&nbsp;  &nbsp;  i = i + 1;
-			</p>
-
-			<p class="Subfigure">
-				}
-			</p>
-
-			<p class="Subfigure">
-				document.writeln(n);
-			</p>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">var i; // Numeric</span></li>
+				<li><span class="Subfigure">var n; // Numeric</span></li>
+				<br/>
+				<li><span class="Subfigure">i = 1;</span></li>
+				<li><span class="Subfigure">n = 0;</span></li>
+				<li><span class="Subfigure">while (i &le; 5)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">n = n + i;</span></li>
+					<li><span class="Subfigure">i = i + 1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+				<li><span class="Subfigure">document.writeln(n);</span></li>
+			</ul>
+			
+			<br/>
+			
 			<!-- End main content -->
+			<hr />
 			<p class="Emphasized">
 				<a href="#tippytop">Return to top</a>
 			</p>
@@ -1671,12 +1530,13 @@
 			<div>
 
 			</div>
-
+			<!--
 			<footer>
 				<p>
 					&copy; Copyright  by Burt
 				</p>
 			</footer>
+			-->
 		</div>
 		<script src="js/acorn.js"></script>
 	    <script src="js/interpreter.js"></script>

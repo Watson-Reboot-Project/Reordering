@@ -137,7 +137,7 @@ function Figure(figureNum) {
 							</div> \
 						<div class="divness bottomrightcontent" id="fig'+ figureNum + 'OutVarBox"style="clear: left;"> \
 							<h4>&nbsp;&nbsp;&nbsp;Variables</h4> \
-							<div id="fig' + figureNum + 'VarBox" class="bottomrighttxtarea"> \
+							<div id="fig' + figureNum + 'VarBox" class="divness bottomrighttxtarea"> \
 								<table id="fig' + figureNum + 'VarTable" class="normal"></table> \
 							</div> \
 							</div> \
