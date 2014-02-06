@@ -14,7 +14,7 @@ define(['angular', 'jquery'], function () {
                     return items[i];
                 }
             }
-            return {name: 'NOT FOUND', path: '#'};
+            return {name: 'NOT FOUND', fullname: 'NOT FOUND', path: '#'};
         }
 
         // should set this up to take in `contents.xml` from somewhere else, so
@@ -22,24 +22,28 @@ define(['angular', 'jquery'], function () {
         // else we're going to need.
         $.get('contents.xml', {}, function (xml) {
             var items = [],
-                item;
+                item,
+                i = 0;
 
             $('chapter', xml).each(function () {
-                item = {name: $(this).text()};
+                i += 1;
+                item = {}
+                item.name = $(this).text();
+                item.fullname = "Chapter " + i + ": " + item.name;
                 item.path = 'chapters/' + item.name + '/index.html';
 
                 if (items.length != 0) {
                     prev = items[items.length - 1];
-                    item.prev = {name: prev.name, path: prev.path};
-                    prev.next = {name: item.name, path: item.path};
+                    item.prev = {name: prev.name, path: prev.path, fullname: prev.fullname};
+                    prev.next = {name: item.name, path: item.path, fullname: item.fullname};
                 } else {
-                    item.prev = {name: 'Home', path: 'index.html'};
+                    item.prev = {fullname: 'Home', path: 'index.html'};
                 }
 
                 items.push(item);
             });
 
-            items[items.length - 1].next = {name: 'Home', path: 'index.html'};
+            items[items.length - 1].next = {fullname: 'Home', path: 'index.html'};
 
             console.log(items);
             $scope.items = items;

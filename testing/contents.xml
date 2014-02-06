@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <table-of-contents>
   <chapters>
-    <chapter>asdf</chapter>
     <chapter>qwer</chapter>
     <chapter>zxcv</chapter>
+    <chapter>asdf</chapter>
   </chapters>
 </table-of-contents>
 <!-- vim: set sts=2 sw=2 : -->
