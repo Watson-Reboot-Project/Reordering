@@ -1,9 +1,18 @@
 <?xml version='1.0'?>
 <table-of-contents>
   <chapters>
-    <chapter>qwer</chapter>
-    <chapter>zxcv</chapter>
-    <chapter>asdf</chapter>
+    <chapter>
+      <name>qwer</name>
+      <path>chapters/qwer/</path>
+    </chapter>
+    <chapter>
+      <name>zxcv</name>
+      <path>chapters/zxcv/</path>
+    </chapter>
+    <chapter>
+      <name>asdf</name>
+      <path>chapters/asdf/</path>
+    </chapter>
   </chapters>
 </table-of-contents>
 <!-- vim: set sts=2 sw=2 : -->

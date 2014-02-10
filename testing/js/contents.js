@@ -28,9 +28,9 @@ define(['angular', 'jquery'], function () {
             $('chapter', xml).each(function () {
                 i += 1;
                 item = {}
-                item.name = $(this).text();
-                item.fullname = "Chapter " + i + ": " + item.name;
-                item.path = 'chapters/' + item.name + '/index.html';
+                item.name = $(this).find('name').text();
+                item.fullname = 'Chapter ' + i + ': ' + item.name;
+                item.path = $(this).find('path').text() + 'index.html';
 
                 if (items.length != 0) {
                     prev = items[items.length - 1];
