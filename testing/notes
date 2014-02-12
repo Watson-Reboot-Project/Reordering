@@ -83,3 +83,10 @@ we want to just return a list of objects, whose members are `onclick` and
 also thinking about simplifying the `item` structure. no duplicating
 information, just get the next/previous `item`s when necessary. we'll talk more
 in the morning.
+
+---
+
+alright. so we're just going to present items from our list, and let the caller
+wire everything up. this allows for the most customizability. the issue is that
+the xml loading is asynchronous. so either we make it synchronous, or we
+require a callback. for now, just making it synchronous.

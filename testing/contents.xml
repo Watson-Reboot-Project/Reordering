@@ -6,15 +6,15 @@
   <chapters>
     <chapter>
       <name>One</name>
-      <path>chapters/qwer/</path>
+      <path>chapters/qwer/index.html</path>
     </chapter>
     <chapter>
       <name>Two</name>
-      <path>chapters/zxcv/</path>
+      <path>chapters/zxcv/index.html</path>
     </chapter>
     <chapter>
       <name>Three</name>
-      <path>chapters/asdf/</path>
+      <path>chapters/asdf/index.html</path>
     </chapter>
   </chapters>
 </table-of-contents>

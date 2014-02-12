@@ -1,16 +1,23 @@
 define(['jquery'], function () {
     return function(xml_location) {
-        var items;
+        var self = this;
 
         var init = function () {
-            items = JSON.parse(sessionStorage.items);
+
+            var items = self.items = JSON.parse(sessionStorage.getItem('items'));
+
             if (items === null) {
-                items = [];
+                items = self.items = [];
 
-                $.get(xml_location, {}, function(xml) {
+                // $.get(xml_location, {}, function(xml) {
+                $.ajax({url: xml_location,
+                        async: false,
+                        success: function (xml) {
+
+                    console.log('[+] Pulling in XML from disk...');
+
                     var item, i = 0;
-
-                    var index = $('index', xml)[0].find('name').text();
+                    var index = self.index = $($('index', xml)[0]).find('name').text();
 
                     $('chapter', xml).each(function () {
                         i += 1;
@@ -21,48 +28,63 @@ define(['jquery'], function () {
                         item.path = $xmlobj.find('path').text();
                         item.fullname = 'Chapter ' + i + ': ' + item.name;
 
-                        // if (items.length !== 0) {
-                        //     prev = items[items.length - 1];
-                        //     item.prev = {name: prev.name, path: prev.path,
-                        //             fullname: prev.fullname};
-                        //     prev.next = {name: item.name, path: item.path,
-                        //             fullname: item.fullname};
-                        // } else {
-                        //     item.prev = {name: 'Home', path: '../../index.html',
-                        //             fullname: index};
-                        // }
-
                         items.push(item);
                     });
 
-                    // items[items.length - 1].next = {name: 'Home',
-                    //         path: '../../index.html', fullname: index};
                     sessionStorage.items = JSON.stringify(items);
-                });
+                    sessionStorage.index = JSON.stringify(index);
+
+                }});
+
+            } else {
+                self.index = JSON.parse(sessionStorage.index);
             }
         };
 
-        this.getNextLink = function (element) {
-            // TODO:
+        self.getNext = function () {
+            var current = sessionStorage.current;
+            if (current === null) {
+                document.write('<h1>ERROR</h1>');
+                throw new Error('sessionStorage does not contain current');
+            }
+
+            var n = self.items.indexOf(current);
+            if (self.items.length == n + 1) {
+                // the current item is last: link them home
+                return self.index;
+            } else {
+                return self.items[n + 1];
+            }
         };
 
-        this.prepForNext = function () {
-            // TODO:
+        self.getPrev = function () {
+            var current = sessionStorage.current;
+            if (current === null) {
+                document.write('<h1>ERROR</h1>');
+                throw new Error('sessionStorage does not contain current');
+            }
+
+            var n = self.items.indexOf(current);
+            if (0 === n) {
+                // the current item is the first: link them home
+                return self.index;
+            } else {
+                return self.items[n - 1];
+            }
         };
 
-        this.getPreviousLink = function () {
-            // TODO:
-        };
+        self.getCurrent = function () {
+            var current = sessionStorage.current;
+            if (current === null) {
+                document.write('<h1>ERROR</h1>');
+                throw new Error('sessionStorage does not contain current');
+            }
 
-        this.prepForPrevious = function () {
-            // TODO:
-        };
-
-        this.getCurrent = function () {
-            // TODO:
+            // all they want is current
+            return current;
         };
 
         init();
-    }
+    };
 });
 // vim: et sts=4 sw=4
