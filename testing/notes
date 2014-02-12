@@ -1,2 +1,85 @@
 ok, so we want to be able to pass values between pages. how do we do that? i
 don't think it's possible. we need to be able to ...
+
+**HEY WAIT**
+
+*i found a thing* called `sessionStorage` in javascript that lets you store
+information across pages within your domain. this is perfect! now to get it
+working.
+
+update: it seems that it only stores data objects (basically JSON). This still
+works, b/c the biggest part of what we needed to communicate was the crap pulled in
+from xml.
+
+## contents.js design
+ok. so we need to work out what we're doing here. angular is a bad idea,
+because nobody else seems to be using it, and it kinda requires (it works best
+when) everything else is in angular too. so we're going to try it with pure
+javascript and jquery.
+
+the API we propose is:
+
+- `getChapters()`:
+  - return the list of chapter elements.
+  - used for generating the table of contents.
+- `getCurrent()`:
+  - return the current chapter element.
+  - used for getting the name of the current chapter
+- `getNext()`:
+  - return the next chapter element in sequence
+  - used for linking to the next chapter (the arrows)
+- `getPrevious()`:
+  - return the previous chapter element in sequence
+  - used for linking to the previous chapter (the arrows)
+
+I'm not sure yet how we will connect WAIT. i was going to say i wasn't sure how
+we would let each chapter know how it related to the main index file, but we
+can send that through the sessionStorage object! hot diggity, i like this! this
+was important, because each link to the next page would have to be relative to
+itself, and if each chapter didn't know where it was located, it wouldn't be
+able to connect to any other page, but if the paths relative to the index are
+known to the index, then we can calculate the reverse path and feed it to each
+page!
+
+---
+
+the plan was at one point to create html elements that 1) wired up `onclick`
+functions that prepped the stage for 2) `href` attributes that link to the next
+page. the thing is, that requires us to make assumptions about the page we
+would be adding attributes to. we could instead make a set of "prep" functions
+to be called on click, alongside a set of functions to return the url to link
+to. i like this one better.
+
+> side note, not 100% relevant to the rest of everything: if we want the
+> chapter files to be completely independent of the filestructure, we'll need
+> to (read: we can theoretically) wireup the require.js hook on-the-fly. if we
+> calculated the tag beforehand and passed it via sessionStorage, ... it has
+> the potential to work, methinks.
+
+we need to be able to go back to the TOC too... and to be able to prep for
+every link in the TOC. hmmmmmm... that's a bit more complicated. we need to
+split this up into a library-like interface, and code for each individual page.
+that would make the dynamic require.js hooking more interesting. we need to
+wrap our head around what we're doing. b/c right now we've got too many
+un-implemented ideas to keep in RAM.
+
+---
+
+1. we're going to just do it like everybody knows where everybody else is. if
+   they want to move the directory structure around, then they're just going to
+   have to fix each reference themselves
+2. i think what we're going to do for the next/prev functions is take an HTML
+   element as a parameter, and just make our changes to it. set `onclick` and
+   `href` there, and be done with it. I feel like this will work.
+
+---
+
+okay, so i feel like we've got a rather elegant solution to the next/prev
+problem. but what do we do for the full list of menu items? doing a list of
+functions sounds silly, and pooping out link elements isn't flexible enough. do
+we want to just return a list of objects, whose members are `onclick` and
+`href`? i suppose that could work... more work on the recieving end.
+
+also thinking about simplifying the `item` structure. no duplicating
+information, just get the next/previous `item`s when necessary. we'll talk more
+in the morning.

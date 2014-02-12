@@ -1,54 +1,68 @@
-console.log('contents sourced');
-define(['angular', 'jquery'], function () {
-    var app = angular.module('ContentsModule', []);
+define(['jquery'], function () {
+    return function(xml_location) {
+        var items;
 
-    app.controller('Controller', function($scope) {
-        console.log('Controller Called');
+        var init = function () {
+            items = JSON.parse(sessionStorage.items);
+            if (items === null) {
+                items = [];
 
-        $scope.items = [];
+                $.get(xml_location, {}, function(xml) {
+                    var item, i = 0;
 
-        $scope.find = function (name) {
-            items = $scope.items
-            for (var i = 0; i < $scope.items.length; i++) {
-                if (items[i].name === name) {
-                    return items[i];
-                }
+                    var index = $('index', xml)[0].find('name').text();
+
+                    $('chapter', xml).each(function () {
+                        i += 1;
+                        item = {};
+                        $xmlobj = $(this);
+
+                        item.name = $xmlobj.find('name').text();
+                        item.path = $xmlobj.find('path').text();
+                        item.fullname = 'Chapter ' + i + ': ' + item.name;
+
+                        // if (items.length !== 0) {
+                        //     prev = items[items.length - 1];
+                        //     item.prev = {name: prev.name, path: prev.path,
+                        //             fullname: prev.fullname};
+                        //     prev.next = {name: item.name, path: item.path,
+                        //             fullname: item.fullname};
+                        // } else {
+                        //     item.prev = {name: 'Home', path: '../../index.html',
+                        //             fullname: index};
+                        // }
+
+                        items.push(item);
+                    });
+
+                    // items[items.length - 1].next = {name: 'Home',
+                    //         path: '../../index.html', fullname: index};
+                    sessionStorage.items = JSON.stringify(items);
+                });
             }
-            return {name: 'NOT FOUND', fullname: 'NOT FOUND', path: '#'};
-        }
+        };
 
-        // should set this up to take in `contents.xml` from somewhere else, so
-        // we don't have to symlink it in each directory. also: not sure what
-        // else we're going to need.
-        $.get('contents.xml', {}, function (xml) {
-            var items = [],
-                item,
-                i = 0;
+        this.getNextLink = function (element) {
+            // TODO:
+        };
 
-            $('chapter', xml).each(function () {
-                i += 1;
-                item = {}
-                item.name = $(this).find('name').text();
-                item.fullname = 'Chapter ' + i + ': ' + item.name;
-                item.path = $(this).find('path').text() + 'index.html';
+        this.prepForNext = function () {
+            // TODO:
+        };
 
-                if (items.length != 0) {
-                    prev = items[items.length - 1];
-                    item.prev = {name: prev.name, path: prev.path, fullname: prev.fullname};
-                    prev.next = {name: item.name, path: item.path, fullname: item.fullname};
-                } else {
-                    item.prev = {fullname: 'Home', path: 'index.html'};
-                }
+        this.getPreviousLink = function () {
+            // TODO:
+        };
 
-                items.push(item);
-            });
+        this.prepForPrevious = function () {
+            // TODO:
+        };
 
-            items[items.length - 1].next = {fullname: 'Home', path: 'index.html'};
+        this.getCurrent = function () {
+            // TODO:
+        };
 
-            console.log(items);
-            $scope.items = items;
-            $scope.$apply();
-        });
-    });
+        init();
+    }
 });
-
+// vim: et sts=4 sw=4

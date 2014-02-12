@@ -1,16 +1,19 @@
 <?xml version='1.0'?>
 <table-of-contents>
+  <index>
+    <name>Table of Contents</name>
+  </index>
   <chapters>
     <chapter>
-      <name>qwer</name>
+      <name>One</name>
       <path>chapters/qwer/</path>
     </chapter>
     <chapter>
-      <name>zxcv</name>
+      <name>Two</name>
       <path>chapters/zxcv/</path>
     </chapter>
     <chapter>
-      <name>asdf</name>
+      <name>Three</name>
       <path>chapters/asdf/</path>
     </chapter>
   </chapters>
