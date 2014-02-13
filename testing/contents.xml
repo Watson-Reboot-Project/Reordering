@@ -2,15 +2,16 @@
 <table-of-contents>
   <index>
     <name>Table of Contents</name>
+    <path>index.html</path>
   </index>
   <chapters>
     <chapter>
-      <name>One</name>
-      <path>chapters/qwer/index.html</path>
-    </chapter>
-    <chapter>
       <name>Two</name>
       <path>chapters/zxcv/index.html</path>
+    </chapter>
+    <chapter>
+      <name>One</name>
+      <path>chapters/qwer/index.html</path>
     </chapter>
     <chapter>
       <name>Three</name>
