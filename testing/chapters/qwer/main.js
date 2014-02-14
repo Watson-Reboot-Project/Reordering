@@ -13,32 +13,37 @@ require.config({
 // we need contents and jquery now, but we also want to make sure bootstrap is
 // loaded for the page
 require(['contents', 'jquery', 'bootstrap'], function(contentsConstructor) {
-    // grab the html element we're going to be sticking our links in
     var links = $('#links')[0];
-    // grab the html element we're going to put our title in
-    var element = $('#title')[0];
-    // make our `contents` object
-    var contents = new contentsConstructor('../../contents.xml');
-    // grab our current item
-    var current = contents.getCurrent();
+    var contents = new contentsConstructor('../../contents.xml', 'One');
+    var element, wrapper;
 
-    // set our title
-    element.innerText = current.name;
+    element = $('#title')[0];
+    element.innerText = 'Chapter ' + contents.getNumber() + ': One';
 
-    // a function to make links. reduce code duplication
-    var addLink = function (item) {
-        var element = document.createElement('a');
-        element.innerText = item.fullname;
-        element.onclick = item.onclick;
-        element.href = '../../' + item.path;
+    var index = contents.getIndex();
+    element = document.createElement('a');
+    element.className = 'btn btn-primary';
+    element.innerText = 'Table of Contents';
+    element.href = '../../' + index.path;
+    links.appendChild(element);
+
+    var prev = contents.getPrev();
+    if (prev.name !== 'index') {
+        element = document.createElement('a');
         element.className = 'btn btn-default';
-
+        element.innerText = 'Previous: Chapter ' + prev.number + ' - ' + prev.name;
+        element.href = '../../' + prev.path;
         links.appendChild(element);
-    };
+    }
 
-    // make a link for both back and forth
-    addLink(contents.getPrev());
-    addLink(contents.getNext());
+    var next = contents.getNext();
+    if (next.name !== 'index') {
+        element = document.createElement('a');
+        element.className = 'btn btn-default';
+        element.innerText = 'Next: Chapter ' + next.number + ' - ' + next.name;
+        element.href = '../../' + next.path;
+        links.appendChild(element);
+    }
 
 });
 // vim: et sts=4 sw=4

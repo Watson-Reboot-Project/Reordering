@@ -18,26 +18,21 @@ require.config({
 
 require(['contents', 'jquery', 'bootstrap'], function(contentsConstructor) {
     // instantiate our `contents`
-    var contents = new contentsConstructor('contents.xml');
+    var contents = new contentsConstructor('contents.xml', 'index');
     // grab the html element we're going to stuff our links in
     var links = $('#links')[0];
-    // grab the html element we're going to drop our title in
-    var element = $('#title')[0];
 
-    // set our title
-    element.innerText = contents.index.name;
+    var items = contents.getItems();
 
     // for each item in the Table of Contents, make a link
-    for (var i = 0; i < contents.items.length; i++) {
+    for (var i = 0; i < items.length; i++) {
         // grab the next item from contents
-        var item = contents.items[i];
+        var item = items[i];
         // make an html element for it
         element = document.createElement('a');
 
         // set it's name
-        element.innerHTML = item.fullname;
-        // set the onclick function (necessary to keep track of where we are)
-        element.onclick = item.onclick;
+        element.innerHTML = 'Chapter ' + item.number + ': ' + item.name;
         // set the path to jump to
         element.href = item.path;
         // make it look pretty
@@ -47,4 +42,4 @@ require(['contents', 'jquery', 'bootstrap'], function(contentsConstructor) {
         links.appendChild(element);
     }
 });
-// vim: et sts=4 sw=4
+// vim: et sts=4 sw=4 fdm=indent

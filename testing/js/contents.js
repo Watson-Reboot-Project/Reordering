@@ -1,131 +1,105 @@
 define(['jquery'], function () {
-    function contentsConstructor(xml_location) {
-        // so we have a reference to our `contents` object throughout
+    function contentsConstructor(xml_location, name) {
+        // so we have a reference to our `contents` object throughout (private)
         var self = this;
+        // all our information-of-interest (private)
+        var items, number, index;
 
-        // inner function called on each button click to prep for next page
-        var setPos = function (pos) {//{{{
-            return function () {
-                sessionStorage.pos = JSON.stringify(pos);
-
-                var x = (sessionStorage.x !== undefined) ?  JSON.parse(sessionStorage.x) : [];
-                x.push(pos);
-                sessionStorage.x = JSON.stringify(x);
-            };
-        };//}}}
-
-        // do all of this when making the object
-        var init = function () {
-            // try and pull in our data from local storage, if it's not there,
-            // pull it in from disk
-            var items = sessionStorage.items;
-            if (items === undefined) {
-                console.log('[+] Pulling in XML from disk...');//{{{
-                items = self.items = [];
-
-                // synchronously pull in xml and parse it into self.index and
-                // self.items
-                $.ajax({ url: xml_location,
-                         async: false,
-                         success: function (xml) {
-
-
-                    var item, i = 0;
-                    var $xmlobj = $($('index', xml)[0]);
-                    var index = self.index = {};
-
-                    // set up the 'Table Of Contents' item
-                    index.name = 'Home';
-                    index.path = $xmlobj.find('path').text();
-                    index.fullname = $xmlobj.find('name').text();
-
-                    // set up our list of items
-                    $chapters = $('chapter', xml);
-                    for (i = 0; i < $chapters.length; i++) {
-                        item = {};
-                        $xmlobj = $($chapters[i]);
-
-                        item.name = $xmlobj.find('name').text();
-                        item.path = $xmlobj.find('path').text();
-                        item.fullname = 'Chapter ' + (i + 1) + ': ' + item.name;
-                        item.pos = i;
-                        item.onclick = setPos(item.pos);
-
-                        items.push(item);
-                    }
-
-                    // put them in storage
-                    sessionStorage.items = JSON.stringify(items);
-                    sessionStorage.index = JSON.stringify(index);
-
-                }});//}}}
-            } else {
-                // otherwise, they exist in storage
-                console.log('[+] Pulling in items from sessionStorage...');//{{{
-
-                self.index = JSON.parse(sessionStorage.index);
-                self.items = JSON.parse(items);
-                self.pos = sessionStorage.pos;
-                if (self.pos !== undefined) {
-                    self.pos = JSON.parse(self.pos);
-                } else {
-                    console.log('[+] No pos yet.');
-                }
-
-                // functions don't get stored correctly, so we recreate them on loadup
-                for (var i = 0; i < self.items.length; i++) {
-                    var item = self.items[i];
-                    item.onclick = setPos(item.pos);
-                }//}}}
+        // take a name of an element and return it's location in sequence
+        // (private)
+        var locate = function (name) {
+            if (name === 'index') {
+                return null;
             }
+
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].name === name) {
+                    return i;
+                }
+            }
+
+            throw new Error('[-] Element not found: ' + name);
+        }
+
+        // do all of this when making the object (private)
+        var init = function () {
+            items = [];
+
+            // synchronously pull in xml and parse it into index and
+            // items
+            $.ajax({ url: xml_location, async: false, success: function (xml) {
+
+                var $xmlobj = $($('index', xml)[0]);
+                index = {};
+
+                // set up the 'Table Of Contents' item
+                index.name = 'index';
+                index.path = $xmlobj.find('path').text();
+
+                // set up our list of items
+                $chapters = $('chapter', xml);
+                for (var i = 0; i < $chapters.length; i++) {
+                    var item = {};
+                    $xmlobj = $($chapters[i]);
+
+                    item.name = $xmlobj.find('name').text();
+                    item.path = $xmlobj.find('path').text();
+                    item.number = i + 1;
+
+                    items.push(item);
+                }
+            }});
+
+            number = locate(name);
         };
 
         // get the next item in sequence
         // (used for setting up links)
-        self.getNext = function () {//{{{
-            var pos = self.pos;
-            if (pos === undefined) {
-                $('#title').setText('<h1>ERROR</h1>');
-                throw new Error('[-] No position set');
+        self.getNext = function () {
+            if (number === null) {
+                throw new Error('[-] Asking for next, but we\'re in index!');
             }
 
-            if (self.items.length == pos + 1) {
+            if (items.length == number + 1) {
                 // the current item is last: link them home
-                return self.index;
+                return index;
             } else {
-                return self.items[pos + 1];
+                console.log(items[number + 1]);
+                return items[number + 1];
             }
-        };//}}}
+        };
 
         // get the previous item in sequence
         // (used for setting up links)
-        self.getPrev = function () {//{{{
-            var pos = self.pos;
-            if (pos === undefined) {
-                $('#title').setText('<h1>ERROR</h1>');
-                throw new Error('[-] No position set');
+        self.getPrev = function () {
+            if (number === null) {
+                throw new Error('[-] Asking for previous, but we\'re in index!');
             }
 
-            if (0 === pos) {
+            if (0 === number) {
                 // the current item is the first: link them home
-                return self.index;
+                return index;
             } else {
-                return self.items[pos - 1];
+                console.log(items[number - 1]);
+                return items[number - 1];
             }
-        };//}}}
+        };
 
-        // get the current item
-        // (used for getting our own chapter title)
-        self.getCurrent = function () {//{{{
-            var pos = self.pos;
-            if (pos === undefined) {
-                $('#title').setText('<h1>ERROR</h1>');
-                throw new Error('[-] No position set');
+        self.getItems = function () {
+            return JSON.parse(JSON.stringify(items));
+        }
+
+        self.getNumber = function () {
+            if (number === null) {
+                throw new Error('[-] Asking for number, but we\'re in index!');
             }
 
-            // all they want is current
-            return self.items[pos];
-        };//}}}
+            return number + 1;
+        }
+
+        self.getIndex = function () {
+            return JSON.parse(JSON.stringify(index));
+        }
 
         // call our loadup function
         init();
@@ -134,4 +108,4 @@ define(['jquery'], function () {
     return contentsConstructor;
 
 });
-// vim: et sts=4 sw=4 fdm=marker
+// vim: et sts=4 sw=4 fdm=indent fdc=6
